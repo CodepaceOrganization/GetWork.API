@@ -1,0 +1,6 @@
+@CodePace.GetWork.API_HostAddress = http://localhost:5030
+
+GET {{CodePace.GetWork.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
