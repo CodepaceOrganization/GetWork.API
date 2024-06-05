@@ -17,7 +17,9 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     {
         base.OnModelCreating(builder);
         
-        // Apply SnakeCase Naming Convention
+        // Contest  test context
+        
+        
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();
     }
 }

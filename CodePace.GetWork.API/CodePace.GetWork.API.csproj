@@ -15,4 +15,13 @@
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.6.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="contest\Application\Internal\CommandServices\" />
+      <Folder Include="contest\Application\Internal\QueryServices\" />
+      <Folder Include="contest\Domain\Model\Queries\" />
+      <Folder Include="contest\Domain\Services\" />
+      <Folder Include="contest\Interfaces\REST\Resources\" />
+      <Folder Include="contest\Interfaces\REST\Transform\" />
+    </ItemGroup>
+
 </Project>
