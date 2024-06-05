@@ -1,5 +1,4 @@
 using CodePace.GetWork.API.TechnicalTest.Domain.Model.Entities;
-
 namespace CodePace.GetWork.API.TechnicalTest.Domain.Model.Aggregates;
 
 public partial class TechnicalTest

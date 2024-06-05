@@ -19,7 +19,6 @@
       <Folder Include="TechnicalTest\Application\Internal\CommandServices\" />
       <Folder Include="TechnicalTest\Application\Internal\OutboundServices\ACL\" />
       <Folder Include="TechnicalTest\Application\QueryServices\" />
-      <Folder Include="TechnicalTest\Domain\Model\Queries\" />
       <Folder Include="TechnicalTest\Domain\Repositories\" />
       <Folder Include="TechnicalTest\Domain\Services\" />
       <Folder Include="TechnicalTest\Infrastructure\Persistence\EFC\Repositories\" />

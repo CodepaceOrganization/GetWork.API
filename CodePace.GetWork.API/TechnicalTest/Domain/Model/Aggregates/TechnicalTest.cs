@@ -8,7 +8,8 @@ public partial class TechnicalTest
         Description = description;
         ImageUrl = imageUrl;
     }
-    
+
+    public int Id { get; }
     public String Title { get; private set; }
     public String Description { get; private set; }
     public String ImageUrl { get; private set; }
