@@ -1,6 +1,6 @@
-using CodePace.GetWork.API.TechnicalTest.Domain.Model.ValueObjects;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
 
-namespace CodePace.GetWork.API.TechnicalTest.Domain.Model.Entities;
+namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 
 public class TechnicalTask
 {

@@ -1,5 +1,5 @@
-using CodePace.GetWork.API.TechnicalTest.Domain.Model.Entities;
-namespace CodePace.GetWork.API.TechnicalTest.Domain.Model.Aggregates;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
+namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 
 public partial class TechnicalTest
 {

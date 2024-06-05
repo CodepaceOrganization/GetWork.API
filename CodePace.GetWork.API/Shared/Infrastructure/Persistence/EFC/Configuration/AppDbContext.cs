@@ -1,5 +1,5 @@
-using CodePace.GetWork.API.TechnicalTest.Domain.Model.Aggregates;
-using CodePace.GetWork.API.TechnicalTest.Domain.Model.Entities;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -21,11 +21,11 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         
         // Technical Test Context
 
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().HasKey(c => c.Id);
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().Property(c => c.Title).IsRequired().HasMaxLength(30);
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().Property(c => c.Description).IsRequired().HasMaxLength(200);
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().Property(c => c.ImageUrl).IsRequired().HasMaxLength(100);
+        builder.Entity<TechnicalTest>().HasKey(c => c.Id);
+        builder.Entity<TechnicalTest>().Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<TechnicalTest>().Property(c => c.Title).IsRequired().HasMaxLength(30);
+        builder.Entity<TechnicalTest>().Property(c => c.Description).IsRequired().HasMaxLength(200);
+        builder.Entity<TechnicalTest>().Property(c => c.ImageUrl).IsRequired().HasMaxLength(100);
         
         builder.Entity<TechnicalTask>().HasDiscriminator(u => u.Difficulty);
         builder.Entity<TechnicalTask>().HasKey(p => p.Id);
@@ -39,7 +39,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
                 ai.Property(p => p.Id).HasColumnName("UserId");
             });
         
-        builder.Entity<TechnicalTest.Domain.Model.Aggregates.TechnicalTest>().HasMany(t => t.TechnicalTasks);
+        builder.Entity<TechnicalTest>().HasMany(t => t.TechnicalTasks);
         
         // Apply SnakeCase Naming Convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();

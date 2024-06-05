@@ -16,14 +16,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TechnicalTest\Application\Internal\CommandServices\" />
-      <Folder Include="TechnicalTest\Application\Internal\OutboundServices\ACL\" />
-      <Folder Include="TechnicalTest\Application\QueryServices\" />
-      <Folder Include="TechnicalTest\Domain\Repositories\" />
-      <Folder Include="TechnicalTest\Domain\Services\" />
-      <Folder Include="TechnicalTest\Infrastructure\Persistence\EFC\Repositories\" />
-      <Folder Include="TechnicalTest\Interfaces\REST\Resources\" />
-      <Folder Include="TechnicalTest\Interfaces\REST\Transform\" />
+      <Folder Include="TechnicalEvaluation\Application\Internal\CommandServices\" />
+      <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
+      <Folder Include="TechnicalEvaluation\Application\QueryServices\" />
+      <Folder Include="TechnicalEvaluation\Domain\Services\" />
+      <Folder Include="TechnicalEvaluation\Infrastructure\Persistence\EFC\Repositories\" />
+      <Folder Include="TechnicalEvaluation\Interfaces\REST\Resources\" />
+      <Folder Include="TechnicalEvaluation\Interfaces\REST\Transform\" />
     </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using EntityFrameworkCore.CreatedUpdatedDate.Contracts;
 
-namespace CodePace.GetWork.API.TechnicalTest.Domain.Model.Aggregates;
+namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 
 public partial class TechnicalTest: IEntityWithCreatedUpdatedDate
 {
