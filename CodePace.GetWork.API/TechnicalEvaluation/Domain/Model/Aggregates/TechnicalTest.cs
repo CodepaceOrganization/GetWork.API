@@ -1,3 +1,5 @@
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
+
 namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 
 public partial class TechnicalTest
@@ -13,5 +15,9 @@ public partial class TechnicalTest
     public String Title { get; private set; }
     public String Description { get; private set; }
     public String ImageUrl { get; private set; }
+    
+    public TechnicalTask TechnicalTask { get; internal set; }
+    
+    public int TechnicalTaskId { get; private set; }
     
 }
