@@ -9,7 +9,7 @@ public class TechnicalTask
     public string Description { get; private set; }
     public EDificultyStatus Difficulty { get; private set; }
     public EProgress Progress { get; private set; }
-
+    public int TechnicalTestId { get; private set; } 
     public TechnicalTask(UserId userId, string description, EDificultyStatus difficulty, EProgress progress)
     {
         UserId = userId;

@@ -5,4 +5,5 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
 
 public interface ITechnicalTaskRepository: IBaseRepository<TechnicalTask>
 {
+    Task<IEnumerable<TechnicalTask>> FindTechnicalsTestByTechnicalTestId(int id);
 }

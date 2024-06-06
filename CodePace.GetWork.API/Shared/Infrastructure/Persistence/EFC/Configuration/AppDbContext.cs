@@ -40,8 +40,10 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
                 v => v.userId, 
                 v => new UserId(v));
         
-        builder.Entity<TechnicalTest>().HasMany(t => t.TechnicalTasks);
-        
+        builder.Entity<TechnicalTask>()
+            .HasOne<TechnicalTest>()
+            .WithMany(t => t.TechnicalTasks)
+            .HasForeignKey(t => t.TechnicalTestId);        
         // Apply SnakeCase Naming Convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();
     }

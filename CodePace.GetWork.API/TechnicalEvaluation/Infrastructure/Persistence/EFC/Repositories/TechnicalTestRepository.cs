@@ -15,14 +15,14 @@ public class TechnicalTestRepository(AppDbContext context) : BaseRepository<Tech
     public new async Task<IEnumerable<TechnicalTest>> ListAsync()
     {
         return await Context.Set<TechnicalTest>()
-            .Include(TechnicalTest => TechnicalTest.TechnicalTasks)
+            .Include(t => t.TechnicalTasks)
             .ToListAsync();
     }
     public async Task<IEnumerable<TechnicalTest>> FindByTechnicalTaskIdAsync(int technicalTaskId)
     {
         return await Context.Set<TechnicalTest>()
-            .Include(TechnicalTest => TechnicalTest.TechnicalTasks)
-            .Where(TechnicalTest => TechnicalTest.TechnicalTaskId == technicalTaskId)
+            .Include(t => t.TechnicalTasks)
+            .Where(t => t.TechnicalTaskId == technicalTaskId)
             .ToListAsync();
     }
 }
