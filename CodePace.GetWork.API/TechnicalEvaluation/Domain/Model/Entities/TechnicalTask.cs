@@ -10,12 +10,12 @@ public class TechnicalTask
     public EDificultyStatus Difficulty { get; private set; }
     public EProgress Progress { get; private set; }
     public int TechnicalTestId { get; private set; } 
-    public TechnicalTask(UserId userId, string description, EDificultyStatus difficulty, EProgress progress)
+    public TechnicalTask(UserId userId, string description, EDificultyStatus difficulty)
     {
         UserId = userId;
         Description = description;
         Difficulty = difficulty;
-        Progress = progress;
+        Progress = EProgress.Earrings;
     }
 
     public TechnicalTask()
