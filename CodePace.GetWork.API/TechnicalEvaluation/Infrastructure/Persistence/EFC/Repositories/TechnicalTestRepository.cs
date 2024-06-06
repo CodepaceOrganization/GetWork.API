@@ -22,7 +22,7 @@ public class TechnicalTestRepository(AppDbContext context) : BaseRepository<Tech
     {
         return await Context.Set<TechnicalTest>()
             .Include(t => t.TechnicalTasks)
-            .Where(t => t.TechnicalTaskId == technicalTaskId)
+            .Where(t => t.Id == technicalTaskId)
             .ToListAsync();
     }
 }
