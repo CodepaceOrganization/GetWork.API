@@ -5,5 +5,4 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
 
 public interface ITechnicalTaskRepository: IBaseRepository<TechnicalTask>
 {
-    
 }

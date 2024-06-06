@@ -1,6 +1,7 @@
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,23 +22,23 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         
         // Technical Test Context
 
-        builder.Entity<TechnicalTest>().HasKey(c => c.Id);
-        builder.Entity<TechnicalTest>().Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<TechnicalTest>().Property(c => c.Title).IsRequired().HasMaxLength(30);
-        builder.Entity<TechnicalTest>().Property(c => c.Description).IsRequired().HasMaxLength(200);
-        builder.Entity<TechnicalTest>().Property(c => c.ImageUrl).IsRequired().HasMaxLength(100);
+        builder.Entity<TechnicalTest>().HasKey(t => t.Id);
+        builder.Entity<TechnicalTest>().Property(t => t.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<TechnicalTest>().Property(t => t.Title).IsRequired().HasMaxLength(30);
+        builder.Entity<TechnicalTest>().Property(t => t.Description).IsRequired().HasMaxLength(200);
+        builder.Entity<TechnicalTest>().Property(t => t.ImageUrl).IsRequired().HasMaxLength(100);
         
-        builder.Entity<TechnicalTask>().HasDiscriminator(u => u.Difficulty);
-        builder.Entity<TechnicalTask>().HasKey(p => p.Id);
-        builder.Entity<TechnicalTask>().HasDiscriminator<string>("task_difficulty")
-            .HasValue<TechnicalTask>("task_base");
+        builder.Entity<TechnicalTask>().HasKey(t => t.Id);
+        builder.Entity<TechnicalTask>().Property(t => t.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<TechnicalTask>().Property(t => t.Description).IsRequired().HasMaxLength(200);
+        builder.Entity<TechnicalTask>().Property(t => t.Difficulty).IsRequired();
+        builder.Entity<TechnicalTask>().Property(t => t.Progress).IsRequired();
         
-        builder.Entity<TechnicalTask>().OwnsOne(i => i.UserId,
-            ai =>
-            {
-                ai.WithOwner().HasForeignKey("Id");
-                ai.Property(p => p.Id).HasColumnName("UserId");
-            });
+        builder.Entity<TechnicalTask>()
+            .Property(t => t.UserId)
+            .HasConversion(
+                v => v.userId, 
+                v => new UserId(v));
         
         builder.Entity<TechnicalTest>().HasMany(t => t.TechnicalTasks);
         

@@ -2,6 +2,8 @@ using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Interfaces.ASP.Configuration;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
+//using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -60,6 +62,10 @@ builder.Services.AddSwaggerGen(
 
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Technical Evaluation Bounded Context Injection Configuration
+/*builder.Services.AddScoped<ITechnicalTaskRepository, TechnicalTaskRepository>();
+builder.Services.AddScoped<ITechnicalTestRepository, TechnicalTestRepository>();*/
 
 var app = builder.Build();
 
