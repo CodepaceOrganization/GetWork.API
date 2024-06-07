@@ -5,5 +5,6 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 
 public interface ITechnicalTaskQueryService
 {
+    public Task<TechnicalTask?> Handle(GetTechnicalTaskByIdQuery query);
     public Task<IEnumerable<TechnicalTask>> Handle(GetAllTechnicalTaskByTechnicalTestIdQuery query);
 }

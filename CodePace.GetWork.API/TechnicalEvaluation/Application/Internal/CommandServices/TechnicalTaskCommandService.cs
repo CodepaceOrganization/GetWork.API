@@ -26,9 +26,9 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
         return technicalTask;
     }
 
-    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command)
+    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
     {
-        var technicalTasks = await technicalTaskRepository.FindTechnicalsTaskByTechnicalTestId(command.TechnicalTestId);
+        var technicalTasks = await technicalTaskRepository.FindTechnicalTaskByTechnicalTestId(command.TechnicalTestId);
         if (technicalTasks is null) throw new Exception("Technical Tasks not found");
         var enumerable = technicalTasks.ToList();
         foreach (var task in enumerable)

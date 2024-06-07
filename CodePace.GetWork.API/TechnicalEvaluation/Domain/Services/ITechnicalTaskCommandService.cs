@@ -7,5 +7,5 @@ public interface ITechnicalTaskCommandService
 {
     public Task<TechnicalTask?> Handle(CreateTechnicalTaskCommand command);
     public Task<TechnicalTask?> Handle(UpdateTaskProgressCommand command);
-    public Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command);
+    public Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command);
 }

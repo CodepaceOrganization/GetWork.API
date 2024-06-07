@@ -4,6 +4,7 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 
 public class TaskProgress
 {
+    public int Id { get; set; }
     public int UserId { get; set; }
 
     public int TechnicalTaskId { get; set; }

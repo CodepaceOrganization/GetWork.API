@@ -1,3 +1,5 @@
-﻿namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Resources;
+﻿using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
 
-public record TechnicalTaskResource(int Id, string Description, string Difficulty, string Progress);
+namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Resources;
+
+public record TechnicalTaskResource(int Id, string Description, EDificultyStatus Difficulty);
