@@ -12,14 +12,30 @@ public class TechnicalTaskRepository(AppDbContext context)
 {
     public new async Task<IEnumerable<TechnicalTask>> FindTechnicalsTaskByTechnicalTestId(int id)
     {
-        return await Context.Set<TechnicalTask>()
+        Console.WriteLine($"Finding technical tasks with technicalTestId: {id}");
+        var tasks = await Context.Set<TechnicalTask>()
             .Where(t=> t.TechnicalTestId == id)
             .ToListAsync();
+        Console.WriteLine($"Found {tasks.Count} tasks with technicalTestId: {id}");
+        return tasks;
     }
     public new async Task<TechnicalTask?> FindByIdAndUserIdAsync(int id, int userId)
     {
         return await Context.Set<TechnicalTask>()
             .Where(t => t.Id == id && t.TaskProgress.UserId == userId)
             .FirstOrDefaultAsync();
+    }
+    public async Task<TaskProgress?> FindTaskProgress(int technicalTaskId, int userId)
+    {
+        return await Context.Set<TaskProgress>()
+            .Where(tp => tp.TechnicalTask.Id == technicalTaskId && tp.UserId == userId)
+            .FirstOrDefaultAsync();
+    }
+    public async Task AddTaskProgress(TaskProgress taskProgress)
+    {
+        // Add the TaskProgress to the DbContext
+        await Context.Set<TaskProgress>().AddAsync(taskProgress);
+
+        // Do not save changes here. The Unit of Work will handle saving changes.
     }
 }
