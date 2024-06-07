@@ -17,8 +17,6 @@
 
     <ItemGroup>
       <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
-      <Folder Include="TechnicalEvaluation\Interfaces\REST\Resources\" />
-      <Folder Include="TechnicalEvaluation\Interfaces\REST\Transform\" />
     </ItemGroup>
 
 </Project>

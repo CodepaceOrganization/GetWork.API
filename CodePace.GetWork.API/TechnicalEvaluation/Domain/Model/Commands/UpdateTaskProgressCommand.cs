@@ -1,3 +1,3 @@
 ﻿namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Commands;
 
-public record UpdateTaskProgressCommand(int TechnicalTestId, int UserId, int ProgressNumber);
+public record UpdateTaskProgressCommand(int TechnicalTaskId, int UserId, int Progress);
