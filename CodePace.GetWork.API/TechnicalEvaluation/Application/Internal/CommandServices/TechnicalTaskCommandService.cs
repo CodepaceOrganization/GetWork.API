@@ -25,17 +25,37 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
         await unitOfWork.CompleteAsync();
         return technicalTask;
     }
-
-    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
+    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command)
     {
-        var technicalTasks = await technicalTaskRepository.FindTechnicalTaskByTechnicalTestId(command.TechnicalTestId);
-        if (technicalTasks is null) throw new Exception("Technical Tasks not found");
-        var enumerable = technicalTasks.ToList();
-        foreach (var task in enumerable)
+        try
         {
-            task.TaskProgress.UpdateUserId(command.UserId);
+            await unitOfWork.BeginTransactionAsync();
+            var technicalTasks = await technicalTaskRepository.FindTechnicalsTaskByTechnicalTestId(command.TechnicalTestId);
+
+            foreach (var technicalTask in technicalTasks)
+            {
+                var existingTaskProgress = await technicalTaskRepository.FindTaskProgress(technicalTask.Id, command.UserId);
+                if (existingTaskProgress != null)
+                {
+                    return new List<TechnicalTask>();
+                }
+
+                var taskProgress = new TaskProgress
+                {
+                    UserId = command.UserId,
+                    TechnicalTaskId = technicalTask.Id
+                };
+                await technicalTaskRepository.AddTaskProgress(taskProgress);
+            }
+
+            await unitOfWork.CompleteAsync();
+            await unitOfWork.CommitTransactionAsync();
+            return technicalTasks;
         }
-        await unitOfWork.CompleteAsync();
-        return enumerable;
+        catch
+        {
+            await unitOfWork.RollbackTransactionAsync();
+            throw;
+        }
     }
 }

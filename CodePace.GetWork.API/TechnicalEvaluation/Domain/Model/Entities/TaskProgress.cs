@@ -10,16 +10,16 @@ public class TaskProgress
     public int TechnicalTaskId { get; set; }
     public TechnicalTask TechnicalTask { get; set; }
 
-    public EProgress Progress { get; private set; }
+    public EProgress Progress { get; set; }
     
     public TaskProgress()
     {
         UserId = 0;
         Progress = EProgress.Earrings;
     }
-    public TaskProgress(int technicalTaskId)
+    public TaskProgress(int userId,int technicalTaskId)
     {
-        UserId = 0;
+        UserId = userId;
         TechnicalTaskId = technicalTaskId;
         Progress = EProgress.Earrings;
     }
