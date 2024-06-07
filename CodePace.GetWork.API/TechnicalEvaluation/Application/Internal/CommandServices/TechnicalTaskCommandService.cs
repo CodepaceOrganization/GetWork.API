@@ -9,8 +9,6 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.CommandS
 
 public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskRepository, IUnitOfWork unitOfWork): ITechnicalTaskCommandService
 {
-    private ITechnicalTaskCommandService _technicalTaskCommandServiceImplementation;
-
     public async Task<TechnicalTask?> Handle(CreateTechnicalTaskCommand command)
     {
         var technicalTask = new TechnicalTask(command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty));
@@ -28,42 +26,16 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
         return technicalTask;
     }
 
-    public Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
+    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
     {
-        return _technicalTaskCommandServiceImplementation.Handle(command);
-    }
-
-    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command)
-    {
-        try
+        var technicalTasks = await technicalTaskRepository.FindTechnicalTaskByTechnicalTestId(command.TechnicalTestId);
+        if (technicalTasks is null) throw new Exception("Technical Tasks not found");
+        var enumerable = technicalTasks.ToList();
+        foreach (var task in enumerable)
         {
-            await unitOfWork.BeginTransactionAsync();
-            var technicalTasks = await technicalTaskRepository.FindTechnicalsTaskByTechnicalTestId(command.TechnicalTestId);
-
-            foreach (var technicalTask in technicalTasks)
-            {
-                var existingTaskProgress = await technicalTaskRepository.FindTaskProgress(technicalTask.Id, command.UserId);
-                if (existingTaskProgress != null)
-                {
-                    return new List<TechnicalTask>();
-                }
-
-                var taskProgress = new TaskProgress
-                {
-                    UserId = command.UserId,
-                    TechnicalTaskId = technicalTask.Id
-                };
-                await technicalTaskRepository.AddTaskProgress(taskProgress);
-            }
-
-            await unitOfWork.CompleteAsync();
-            await unitOfWork.CommitTransactionAsync();
-            return technicalTasks;
+            task.TaskProgress.UpdateUserId(command.UserId);
         }
-        catch
-        {
-            await unitOfWork.RollbackTransactionAsync();
-            throw;
-        }
+        await unitOfWork.CompleteAsync();
+        return enumerable;
     }
 }

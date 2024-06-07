@@ -1,4 +1,4 @@
-﻿using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
 
 namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Resources;
 
