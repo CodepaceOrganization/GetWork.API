@@ -12,4 +12,9 @@ public partial class TechnicalTest
     }
     
     public ICollection<TechnicalTask> TechnicalTasks { get; private set; }
+    
+    public void AssignTechnicalTask(TechnicalTask technicalTask)
+    {
+        TechnicalTasks.Add(technicalTask);
+    }
 }

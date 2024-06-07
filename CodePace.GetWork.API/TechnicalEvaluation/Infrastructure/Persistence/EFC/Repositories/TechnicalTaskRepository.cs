@@ -10,18 +10,16 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EF
 public class TechnicalTaskRepository(AppDbContext context)
     : BaseRepository<TechnicalTask>(context), ITechnicalTaskRepository
 {
-    public new async Task<IEnumerable<TechnicalTask>> FindTechnicalsTestByTechnicalTestId(int id)
+    public new async Task<IEnumerable<TechnicalTask>> FindTechnicalsTaskByTechnicalTestId(int id)
     {
         return await Context.Set<TechnicalTask>()
             .Where(t=> t.TechnicalTestId == id)
             .ToListAsync();
     }
-//ta mal
     public new async Task<TechnicalTask?> FindByIdAndUserIdAsync(int id, int userId)
     {
-        //return await Context.Set<TechnicalTask>()
-          //  .Where(t => t.Id == id && t.UserId.userId == userId)
-            //.FirstOrDefaultAsync();
-        throw new NotImplementedException();
+        return await Context.Set<TechnicalTask>()
+            .Where(t => t.Id == id && t.TaskProgress.UserId == userId)
+            .FirstOrDefaultAsync();
     }
 }

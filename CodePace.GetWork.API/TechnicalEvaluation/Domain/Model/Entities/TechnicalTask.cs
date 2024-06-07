@@ -13,14 +13,14 @@ public class TechnicalTask
     {
         Description = description;
         Difficulty = difficulty;
-        TaskProgress = new TaskProgress();
+        TaskProgress = new TaskProgress(Id);
     }
 
     public TechnicalTask()
     {
         Description = string.Empty;
         Difficulty = EDificultyStatus.Easy;
-        TaskProgress = new TaskProgress();
+        TaskProgress = new TaskProgress(Id);
     }
 
     public void UpdateDescription(string description)
@@ -32,5 +32,5 @@ public class TechnicalTask
     {
         Difficulty = difficulty;
     }
-
+    
 }

@@ -19,6 +19,23 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
 
     public async Task<TechnicalTask?> Handle(UpdateTaskProgressCommand command)
     {
-        throw new NotImplementedException();
+        var technicalTask = await technicalTaskRepository.FindByIdAsync(command.TechnicalTaskId);
+        if (technicalTask is null) throw new Exception("Technical Task not found");
+        technicalTask.TaskProgress.UpdateProgress(Enum.Parse<EProgress>(command.Progress));
+        await unitOfWork.CompleteAsync();
+        return technicalTask;
+    }
+
+    public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command)
+    {
+        var technicalTasks = await technicalTaskRepository.FindTechnicalsTaskByTechnicalTestId(command.TechnicalTestId);
+        if (technicalTasks is null) throw new Exception("Technical Tasks not found");
+        var enumerable = technicalTasks.ToList();
+        foreach (var task in enumerable)
+        {
+            task.TaskProgress.UpdateUserId(command.UserId);
+        }
+        await unitOfWork.CompleteAsync();
+        return enumerable;
     }
 }

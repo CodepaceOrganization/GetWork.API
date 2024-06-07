@@ -16,13 +16,16 @@ public class TaskProgress
         UserId = 0;
         Progress = EProgress.Earrings;
     }
-    public TaskProgress(int userId, int technicalTaskId)
+    public TaskProgress(int technicalTaskId)
     {
-        UserId = userId;
+        UserId = 0;
         TechnicalTaskId = technicalTaskId;
         Progress = EProgress.Earrings;
     }
-    
+    public void UpdateUserId(int userId)
+    {
+        UserId = userId;
+    }
     public void UpdateProgress(EProgress progress)
     {
         Progress = progress;
