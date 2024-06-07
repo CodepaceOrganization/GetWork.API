@@ -32,18 +32,20 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<TechnicalTask>().Property(t => t.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<TechnicalTask>().Property(t => t.Description).IsRequired().HasMaxLength(200);
         builder.Entity<TechnicalTask>().Property(t => t.Difficulty).IsRequired().HasMaxLength(30);
-        builder.Entity<TechnicalTask>().Property(t => t.Progress).IsRequired().HasMaxLength(30);
         
-        builder.Entity<TechnicalTask>()
-            .Property(t => t.UserId)
-            .HasConversion(
-                v => v.userId, 
-                v => new UserId(v));
-        
+        builder.Entity<TaskProgress>()
+            .HasKey(tp => new { tp.TechnicalTaskId, tp.UserId });
+
         builder.Entity<TechnicalTest>()
             .HasMany(t => t.TechnicalTasks)
             .WithOne()
-            .HasForeignKey(t => t.TechnicalTestId);       
+            .HasForeignKey(t => t.TechnicalTestId);
+
+        builder.Entity<TaskProgress>()
+            .HasOne(tp => tp.TechnicalTask)
+            .WithOne()
+            .HasForeignKey<TaskProgress>(tp => tp.TechnicalTaskId);
+        
         // Apply SnakeCase Naming Convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();
     }

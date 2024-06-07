@@ -16,4 +16,12 @@ public class TechnicalTaskRepository(AppDbContext context)
             .Where(t=> t.TechnicalTestId == id)
             .ToListAsync();
     }
+//ta mal
+    public new async Task<TechnicalTask?> FindByIdAndUserIdAsync(int id, int userId)
+    {
+        //return await Context.Set<TechnicalTask>()
+          //  .Where(t => t.Id == id && t.UserId.userId == userId)
+            //.FirstOrDefaultAsync();
+        throw new NotImplementedException();
+    }
 }
