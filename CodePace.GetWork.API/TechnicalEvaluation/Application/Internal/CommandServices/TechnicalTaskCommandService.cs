@@ -11,7 +11,7 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
 {
     public async Task<TechnicalTask?> Handle(CreateTechnicalTaskCommand command)
     {
-        var technicalTask = new TechnicalTask(new UserId(command.UserId), command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty));
+        var technicalTask = new TechnicalTask(command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty));
         await technicalTaskRepository.AddAsync(technicalTask);
         await unitOfWork.CompleteAsync();
         return technicalTask;

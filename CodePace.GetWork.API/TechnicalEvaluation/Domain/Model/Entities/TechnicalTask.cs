@@ -7,17 +7,20 @@ public class TechnicalTask
     public int Id { get; }
     public string Description { get; private set; }
     public EDificultyStatus Difficulty { get; private set; }
+    public TaskProgress TaskProgress { get; set; }
     public int TechnicalTestId { get; private set; } 
-    public TechnicalTask(UserId userId, string description, EDificultyStatus difficulty)
+    public TechnicalTask(string description, EDificultyStatus difficulty)
     {
         Description = description;
         Difficulty = difficulty;
+        TaskProgress = new TaskProgress();
     }
 
     public TechnicalTask()
     {
         Description = string.Empty;
         Difficulty = EDificultyStatus.Easy;
+        TaskProgress = new TaskProgress();
     }
 
     public void UpdateDescription(string description)

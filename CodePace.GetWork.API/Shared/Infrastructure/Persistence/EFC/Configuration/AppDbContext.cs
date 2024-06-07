@@ -43,7 +43,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 
         builder.Entity<TaskProgress>()
             .HasOne(tp => tp.TechnicalTask)
-            .WithOne()
+            .WithOne(tt => tt.TaskProgress)
             .HasForeignKey<TaskProgress>(tp => tp.TechnicalTaskId);
         
         // Apply SnakeCase Naming Convention
