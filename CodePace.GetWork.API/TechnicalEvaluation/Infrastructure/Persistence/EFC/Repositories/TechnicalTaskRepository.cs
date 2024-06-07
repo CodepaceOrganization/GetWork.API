@@ -16,8 +16,6 @@ public class TechnicalTaskRepository(AppDbContext context)
         var tasks = await Context.Set<TechnicalTask>()
             .Where(t=> t.TechnicalTestId == id)
             .ToListAsync();
-        Console.WriteLine($"Found {tasks.Count} tasks with technicalTestId: {id}");
-        return tasks;
     }
     public new async Task<TechnicalTask?> FindByIdAndUserIdAsync(int id, int userId)
     {

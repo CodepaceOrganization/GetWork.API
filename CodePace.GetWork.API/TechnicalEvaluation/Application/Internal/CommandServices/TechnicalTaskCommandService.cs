@@ -9,6 +9,8 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.CommandS
 
 public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskRepository, IUnitOfWork unitOfWork): ITechnicalTaskCommandService
 {
+    private ITechnicalTaskCommandService _technicalTaskCommandServiceImplementation;
+
     public async Task<TechnicalTask?> Handle(CreateTechnicalTaskCommand command)
     {
         var technicalTask = new TechnicalTask(command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty));
@@ -25,6 +27,12 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
         await unitOfWork.CompleteAsync();
         return technicalTask;
     }
+
+    public Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
+    {
+        return _technicalTaskCommandServiceImplementation.Handle(command);
+    }
+
     public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUser command)
     {
         try
