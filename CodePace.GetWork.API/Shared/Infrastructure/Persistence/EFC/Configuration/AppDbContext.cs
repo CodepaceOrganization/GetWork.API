@@ -1,5 +1,6 @@
 using CodePace.GetWork.API.Plans.Domain.Model.Aggregates;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using DefaultNamespace;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,9 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
     public class AppDbContext : DbContext
     {
         public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<Tutor> Tutors { get; set; } 
+        public DbSet<Time> Times { get; set; }
+
 
         public AppDbContext(DbContextOptions options) : base(options)
         {

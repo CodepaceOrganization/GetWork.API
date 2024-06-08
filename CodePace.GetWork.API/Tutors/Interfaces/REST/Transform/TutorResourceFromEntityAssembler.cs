@@ -1,11 +1,10 @@
-
-
-namespace DefaultNamespace;
-
-public static class TutorResourceFromEntityAssembler
+namespace DefaultNamespace
 {
-    public static TutorResource ToResourceFromEntity(Tutor tutor)
+    public static class TutorResourceFromEntityAssembler
     {
-        return new TutorResource(tutor.Id, tutor.Name, tutor.Description, tutor.Image, tutor.Times);
+        public static TutorResource ToResourceFromEntity(Tutor tutor)
+        {
+            return new TutorResource(tutor.Id, tutor.Name, tutor.Description, tutor.Image, tutor.Times.Select(t => t.Value).ToList());
+        }
     }
 }
