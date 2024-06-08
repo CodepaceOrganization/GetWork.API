@@ -1,14 +1,16 @@
+using System.Runtime.InteropServices.JavaScript;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 
 namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 
 public partial class TechnicalTest
 {
-    public TechnicalTest(String title, String description, String imageUrl, ICollection<TechnicalTask> technicalTasks)
+    public TechnicalTest(String title, String description, String imageUrl, String testType, ICollection<TechnicalTask> technicalTasks)
     {
         Title = title;
         Description = description;
         ImageUrl = imageUrl;
+        TestType = testType;
         TechnicalTasks = technicalTasks;
     }
 

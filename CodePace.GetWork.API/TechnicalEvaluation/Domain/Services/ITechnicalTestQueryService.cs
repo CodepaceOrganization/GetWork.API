@@ -6,4 +6,6 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 public interface ITechnicalTestQueryService
 {
     public Task<IEnumerable<TechnicalTest>> Handle(GetAllTechnicalTestsQuery query);
+    public Task<IEnumerable<TechnicalTest>?> Handle(GetAllTechnicalTaskByTestTypeQuery query);
+
 }

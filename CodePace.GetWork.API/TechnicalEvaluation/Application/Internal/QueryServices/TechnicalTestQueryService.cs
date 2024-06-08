@@ -7,8 +7,12 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.QuerySer
 
 public class TechnicalTestQueryService(ITechnicalTestRepository technicalTestRepository): ITechnicalTestQueryService
 {
-    public Task<IEnumerable<TechnicalTest>> Handle(GetAllTechnicalTestsQuery query)
+    public async Task<IEnumerable<TechnicalTest>> Handle(GetAllTechnicalTestsQuery query)
     {
-        throw new NotImplementedException();
+        return await technicalTestRepository.ListAsync();
+    }
+    public async Task<IEnumerable<TechnicalTest>?> Handle(GetAllTechnicalTaskByTestTypeQuery query)
+    {
+        return await technicalTestRepository.FindByTypeTestType(query.TestType);
     }
 }

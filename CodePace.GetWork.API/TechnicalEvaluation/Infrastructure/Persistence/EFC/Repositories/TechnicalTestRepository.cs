@@ -18,6 +18,15 @@ public class TechnicalTestRepository(AppDbContext context) : BaseRepository<Tech
             .Include(t => t.TechnicalTasks)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<TechnicalTest>?> FindByTypeTestType(string testType)
+    {
+        return await Context.Set<TechnicalTest>()
+            .Include(t => t.TechnicalTasks)
+            .Where(t => t.TestType == testType)
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<TechnicalTest>> FindByTechnicalTaskIdAsync(int technicalTaskId)
     {
         return await Context.Set<TechnicalTest>()

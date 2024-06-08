@@ -5,14 +5,12 @@ using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 using CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Resources;
 using CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Transform;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 
 namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST;
 
 [ApiController]
 [Route("api/v1/technical-tasks")]
 [Produces(MediaTypeNames.Application.Json)]
-
 public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskCommandService, ITechnicalTaskQueryService technicalTaskQueryService): ControllerBase
 {
     [HttpPut("{technicalTestId:int}/assign/{userId:int}")]
@@ -32,7 +30,7 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         return CreatedAtAction(nameof(GetTechnicalTaskById), new { technicalTaskId = technicalTask.Id }, technicalTask);
     }
 
-    [HttpGet("{technicalTaskId:int}")]
+    [HttpGet("technical-task-{technicalTaskId:int}")]
     public async Task<IActionResult> GetTechnicalTaskById(int technicalTaskId)
     {
         var getTechnicalTaskByIdQuery = new GetTechnicalTaskByIdQuery(technicalTaskId);
@@ -41,7 +39,7 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         return Ok(resource);
     }
     
-    [HttpGet("{technicalTestId:int}")]
+    [HttpGet("details-{technicalTestId:int}")]
     public async Task<IActionResult> GetAllTechnicalTaskByTechnicalTestId([FromRoute] int technicalTestId)
     {
         var getAllTechnicalTaskQuery = new GetAllTechnicalTaskByTechnicalTestIdQuery(technicalTestId);

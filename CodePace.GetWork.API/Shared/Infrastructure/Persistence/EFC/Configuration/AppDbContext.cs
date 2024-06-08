@@ -27,6 +27,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<TechnicalTest>().Property(t => t.Title).IsRequired().HasMaxLength(30);
         builder.Entity<TechnicalTest>().Property(t => t.Description).IsRequired().HasMaxLength(200);
         builder.Entity<TechnicalTest>().Property(t => t.ImageUrl).IsRequired().HasMaxLength(512);
+        builder.Entity<TechnicalTest>().Property(t => t.TestType).IsRequired().HasMaxLength(50).HasConversion<String>();
         
         builder.Entity<TechnicalTask>().HasKey(t => t.Id);
         builder.Entity<TechnicalTask>().Property(t => t.Id).IsRequired().ValueGeneratedOnAdd();
