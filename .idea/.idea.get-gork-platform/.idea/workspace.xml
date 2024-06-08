@@ -5,8 +5,17 @@
     <projectFile profileName="http">CodePace.GetWork.API/CodePace.GetWork.API.csproj</projectFile>
     <projectFile profileName="https">CodePace.GetWork.API/CodePace.GetWork.API.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="02759018-88e4-4592-af10-13ed9ac180c4" name="Changes" comment="" />
+    <list default="true" id="02759018-88e4-4592-af10-13ed9ac180c4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.get-gork-platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.get-gork-platform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Plans/Domain/Repositories/ISubscriptionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Plans/Domain/Repositories/ISubscriptionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Plans/Infrastructure/Persistence/EFC/SubscriptionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Plans/Infrastructure/Persistence/EFC/SubscriptionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,22 +27,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Jemisas"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Jemisas&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/CodepaceOrganization/GetWorkBackend.git",
-    "accountId": "117d6b9b-4db2-475a-80be-422c6952952a"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CodepaceOrganization/GetWorkBackend.git&quot;,
+    &quot;accountId&quot;: &quot;117d6b9b-4db2-475a-80be-422c6952952a&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/a97f6ffcf78100056683c8c3b116721a89e5c58c/src/EFCore.Relational/Storage/RelationalCommand.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2hXjGElX9syIH6XlY3lT6bj36Jg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -45,6 +57,10 @@
     ".NET Launch Settings Profile.CodePace.GetWork.API: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "RiderIisExpressOptionsPageId",
     "vue.rearranger.settings.migration": "true"
@@ -113,6 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717747218511</updated>
       <workItem from="1717747219598" duration="57000" />
+      <workItem from="1717793855156" duration="1206000" />
     </task>
     <servers />
   </component>

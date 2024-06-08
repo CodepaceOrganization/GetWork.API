@@ -5,5 +5,6 @@ namespace CodePace.GetWork.API.Plans.Domain.Repositories;
 
 public interface ISubscriptionRepository : IBaseRepository<Subscription>
 {
-    
+    Task<Subscription?> FindByIdAsync(long id);
+    Task<IEnumerable<Subscription>> ListAsync();
 }
