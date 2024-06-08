@@ -1,3 +1,4 @@
+using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using Microsoft.EntityFrameworkCore;
@@ -19,4 +20,5 @@ public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where T
     public void Remove(TEntity entity) => Context.Set<TEntity>().Remove(entity);
 
     public async Task<IEnumerable<TEntity>> ListAsync() => await Context.Set<TEntity>().ToListAsync();
+    
 }

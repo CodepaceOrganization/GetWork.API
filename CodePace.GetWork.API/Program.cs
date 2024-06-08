@@ -1,3 +1,9 @@
+using CodePace.GetWork.API.contest.Application.Internal.CommandServices;
+using CodePace.GetWork.API.contest.Application.Internal.QueryServices;
+using CodePace.GetWork.API.contest.Domain.Model.Entities;
+using CodePace.GetWork.API.contest.Domain.Repositories;
+using CodePace.GetWork.API.contest.Domain.Services;
+using CodePace.GetWork.API.contest.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -60,6 +66,12 @@ builder.Services.AddSwaggerGen(
 
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Contest Bounded Context Injection Configuration
+builder.Services.AddScoped<IContestQueryService, ContestQueryService>();
+builder.Services.AddTransient<IContestCommandService, ContestCommandService>();
+builder.Services.AddScoped<IContestRepository, ContestRepository>();
+builder.Services.AddScoped<IWeeklyContestRepository, WeeklyContestRepository>();
 
 var app = builder.Build();
 
