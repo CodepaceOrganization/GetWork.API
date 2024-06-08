@@ -4,6 +4,7 @@ using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Interfaces.ASP.Configuration;
 using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.CommandServices;
 using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.QueryServices;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
@@ -72,6 +73,7 @@ builder.Services.AddScoped<ITechnicalTaskRepository, TechnicalTaskRepository>();
 builder.Services.AddScoped<ITechnicalTestRepository, TechnicalTestRepository>();
 builder.Services.AddScoped<ITechnicalTaskCommandService, TechnicalTaskCommandService>();
 builder.Services.AddScoped<ITechnicalTaskQueryService, TechnicalTaskQueryService>();
+builder.Services.AddScoped<ITechnicalTestQueryService, TechnicalTestQueryService>();
 
 var app = builder.Build();
 
