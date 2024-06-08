@@ -16,11 +16,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="TechnicalEvaluation\Infrastructure\Persistence\EFC\Repositories\TaskProgressRepository.cs" />
+      <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
+      <Folder Include="Tutors\Application\Internal\OutboundServices\" />
+      <Folder Include="Tutors\Domain\Services\" />
+      <Folder Include="Tutors\Interfaces\ACL\Services\" />
     </ItemGroup>
 
 </Project>
