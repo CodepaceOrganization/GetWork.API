@@ -10,10 +10,10 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EF
 public class TechnicalTaskRepository(AppDbContext context)
     : BaseRepository<TechnicalTask>(context), ITechnicalTaskRepository
 {
-    public new async Task<IEnumerable<TechnicalTask>> FindTechnicalTaskByTechnicalTestId(int TechnicalTestId)
+    public new async Task<IEnumerable<TechnicalTask>> FindTechnicalsTaskByTechnicalTestId(int id)
     {
         return await Context.Set<TechnicalTask>()
-            .Where(t=> t.TechnicalTestId == TechnicalTestId)
+            .Where(t=> t.TechnicalTestId == id)
             .ToListAsync();
     }
     public new async Task<TechnicalTask?> FindByIdAndUserIdAsync(int id, int userId)
@@ -21,5 +21,15 @@ public class TechnicalTaskRepository(AppDbContext context)
         return await Context.Set<TechnicalTask>()
             .Where(t => t.Id == id && t.TaskProgress.UserId == userId)
             .FirstOrDefaultAsync();
+    }
+    public async Task<TaskProgress?> FindTaskProgress(int technicalTaskId, int userId)
+    {
+        return await Context.Set<TaskProgress>()
+            .Where(tp => tp.TechnicalTask.Id == technicalTaskId && tp.UserId == userId)
+            .FirstOrDefaultAsync();
+    }
+    public async Task AddTaskProgress(TaskProgress taskProgress)
+    {
+        await Context.Set<TaskProgress>().AddAsync(taskProgress);
     }
 }

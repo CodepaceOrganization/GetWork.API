@@ -2,7 +2,11 @@ using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Interfaces.ASP.Configuration;
+using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.CommandServices;
+using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.QueryServices;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
+using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
 //using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -64,8 +68,10 @@ builder.Services.AddSwaggerGen(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Technical Evaluation Bounded Context Injection Configuration
-/*builder.Services.AddScoped<ITechnicalTaskRepository, TechnicalTaskRepository>();
-builder.Services.AddScoped<ITechnicalTestRepository, TechnicalTestRepository>();*/
+builder.Services.AddScoped<ITechnicalTaskRepository, TechnicalTaskRepository>();
+builder.Services.AddScoped<ITechnicalTestRepository, TechnicalTestRepository>();
+builder.Services.AddScoped<ITechnicalTaskCommandService, TechnicalTaskCommandService>();
+builder.Services.AddScoped<ITechnicalTaskQueryService, TechnicalTaskQueryService>();
 
 var app = builder.Build();
 

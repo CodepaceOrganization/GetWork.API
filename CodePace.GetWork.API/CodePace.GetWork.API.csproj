@@ -19,4 +19,10 @@
       <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="TechnicalEvaluation\Infrastructure\Persistence\EFC\Repositories\TaskProgressRepository.cs" />
+      <Compile Remove="TechnicalEvaluation\Application\Internal\QueryServices\TaskProgressQueryService.cs" />
+      <Compile Remove="TechnicalEvaluation\Interfaces\REST\TechnicalTestController.cs" />
+    </ItemGroup>
+
 </Project>

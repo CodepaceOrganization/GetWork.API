@@ -9,14 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST;
 
 [ApiController]
-[Route("api/v1/task-progress")]
+[Route("api/v1/technical-tasks")]
 [Produces(MediaTypeNames.Application.Json)]
 
-public class TechnicalTaskController(
-    ITechnicalTaskCommandService technicalTaskCommandService, 
-    ITechnicalTaskQueryService technicalTaskQueryService): ControllerBase
+public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskCommandService, ITechnicalTaskQueryService technicalTaskQueryService): ControllerBase
 {
-    [HttpPut]
+    [HttpPut("{technicalTestId:int}/assign/{userId:int}")]
     public async Task<IActionResult> AssignTechnicalTaskToUser([FromRoute] int technicalTestId, int userId)
     {
         var assignTechnicalTaskToUserCommand = new AssignTechnicalTaskToUserCommand(technicalTestId, userId);

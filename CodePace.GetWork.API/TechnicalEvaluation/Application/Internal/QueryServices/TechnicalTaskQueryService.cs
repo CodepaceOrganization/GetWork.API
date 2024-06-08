@@ -13,6 +13,6 @@ public class TechnicalTaskQueryService(ITechnicalTaskRepository technicalTaskRep
     }
     public async Task<IEnumerable<TechnicalTask>> Handle(GetAllTechnicalTaskByTechnicalTestIdQuery query)
     {
-        return await technicalTaskRepository.FindTechnicalTaskByTechnicalTestId(query.TechnicalTestId);
+        return await technicalTaskRepository.FindTechnicalsTaskByTechnicalTestId(query.TechnicalTestId);
     }
 }
