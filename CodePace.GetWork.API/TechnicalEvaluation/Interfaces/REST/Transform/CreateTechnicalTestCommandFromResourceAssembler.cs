@@ -5,8 +5,8 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Transform;
 
 public static class CreateTechnicalTaskCommandFromResourceAssembler
 {
-    public static CreateTechnicalTaskCommand ToCommandFromResource(CreateTechnicalTaskResource resource)
+    public static CreateTechnicalTaskCommand ToCommandFromResource(int technicalTestId, CreateTechnicalTaskResource resource)
     {
-        return new CreateTechnicalTaskCommand(resource.Description, resource.Difficulty);
+        return new CreateTechnicalTaskCommand(technicalTestId, resource.Description, resource.Difficulty);
     }
 }

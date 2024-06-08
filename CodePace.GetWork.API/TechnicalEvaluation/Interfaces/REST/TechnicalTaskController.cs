@@ -24,12 +24,12 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         return Ok();
     }
     [HttpPost]
-    public async Task<IActionResult> CreateTechnicalTask([FromBody] CreateTechnicalTaskResource createTechnicalTaskResource)
+    public async Task<IActionResult> CreateTechnicalTask([FromRoute] int technicalTestId, [FromBody] CreateTechnicalTaskResource createTechnicalTaskResource)
     {
-        var createTechnicalTaskCommand = CreateTechnicalTaskCommandFromResourceAssembler.ToCommandFromResource(createTechnicalTaskResource);
+        var createTechnicalTaskCommand = CreateTechnicalTaskCommandFromResourceAssembler.ToCommandFromResource(technicalTestId, createTechnicalTaskResource);
         var technicalTask = await technicalTaskCommandService.Handle(createTechnicalTaskCommand);
-        if (technicalTask is null) return BadRequest();
-        return CreatedAtAction(nameof(GetTechnicalTaskById), new { technicalTaskId = technicalTask.Id }, technicalTask);
+        var resource = TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity(technicalTask);
+        return CreatedAtAction(nameof(GetTechnicalTaskById), new { technicalTaskId = resource.Id }, resource);
     }
 
     [HttpGet("{technicalTaskId:int}")]
