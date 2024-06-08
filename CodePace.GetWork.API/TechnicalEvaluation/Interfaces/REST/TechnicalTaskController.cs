@@ -5,6 +5,7 @@ using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 using CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Resources;
 using CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST.Transform;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace CodePace.GetWork.API.TechnicalEvaluation.Interfaces.REST;
 
@@ -38,5 +39,14 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         var technicalTask = await technicalTaskQueryService.Handle(getTechnicalTaskByIdQuery);
         var resource = TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity(technicalTask);
         return Ok(resource);
+    }
+    
+    [HttpGet("{technicalTestId:int}")]
+    public async Task<IActionResult> GetAllTechnicalTaskByTechnicalTestId([FromRoute] int technicalTestId)
+    {
+        var getAllTechnicalTaskQuery = new GetAllTechnicalTaskByTechnicalTestIdQuery(technicalTestId);
+        var technicalTasks = await technicalTaskQueryService.Handle(getAllTechnicalTaskQuery);
+        var resources = technicalTasks.Select(TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(resources);
     }
 }
