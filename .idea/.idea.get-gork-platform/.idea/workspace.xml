@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02759018-88e4-4592-af10-13ed9ac180c4" name="Changes" comment="" />
+    <list default="true" id="02759018-88e4-4592-af10-13ed9ac180c4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,7 +52,7 @@
     ".NET Launch Settings Profile.CodePace.GetWork.API: IIS Express.executor": "Run",
     ".NET Launch Settings Profile.CodePace.GetWork.API: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/technical-evaluation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
