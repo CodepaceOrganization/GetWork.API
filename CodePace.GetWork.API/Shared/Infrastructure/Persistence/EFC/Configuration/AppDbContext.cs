@@ -28,6 +28,13 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
+            // Subscription Context
+            
+            builder.Entity<Subscription>().HasKey(s => s.Id);
+            builder.Entity<Subscription>().Property(s => s.Id).IsRequired().ValueGeneratedOnAdd();
+            //builder.Entity<Subscription>().Property(s => s.Name).IsRequired().HasMaxLength(50);
+            
 
             // Technical Test Context
 

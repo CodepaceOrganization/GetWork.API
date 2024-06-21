@@ -1,3 +1,7 @@
+using CodePace.GetWork.API.Plans.Application.Internal;
+using CodePace.GetWork.API.Plans.Domain.Repositories;
+using CodePace.GetWork.API.Plans.Domain.Service;
+using CodePace.GetWork.API.Plans.Infrastructure.Persistence.EFC;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -85,6 +89,12 @@ builder.Services.AddScoped<ITechnicalTestQueryService, TechnicalTestQueryService
 builder.Services.AddSingleton<ITutorRepository, TutorRepository>();
 builder.Services.AddTransient<TutorCommandService>();
 builder.Services.AddTransient<TutorQueryService>();
+
+//Subscription services and repository
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+builder.Services.AddScoped<ISubscriptionCommandService, SubscriptionCommandService>();
+builder.Services.AddScoped<ISubscriptionQueryService, SubscriptionQueryService>();
+
 
 
 var app = builder.Build();
