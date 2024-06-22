@@ -1,7 +1,26 @@
+using CodePace.GetWork.API.IAM.Application.Internal.CommandServices;
+using CodePace.GetWork.API.IAM.Application.Internal.OutboundServices;
+using CodePace.GetWork.API.IAM.Application.Internal.QueryServices;
+using CodePace.GetWork.API.IAM.Domain.Repositories;
+using CodePace.GetWork.API.IAM.Domain.Services;
+using CodePace.GetWork.API.IAM.Infrastructure.Hashing.BCrypt.Services;
+using CodePace.GetWork.API.IAM.Infrastructure.Persistence.EFC.Repositories;
+using CodePace.GetWork.API.IAM.Infrastructure.Pipeline.Middleware.Extensions;
+using CodePace.GetWork.API.IAM.Infrastructure.Tokens.JWT.Configuration;
+using CodePace.GetWork.API.IAM.Infrastructure.Tokens.JWT.Services;
+using CodePace.GetWork.API.IAM.Interfaces.ACL;
+using CodePace.GetWork.API.IAM.Interfaces.ACL.Services;
 using CodePace.GetWork.API.Plans.Application.Internal;
 using CodePace.GetWork.API.Plans.Domain.Repositories;
 using CodePace.GetWork.API.Plans.Domain.Service;
 using CodePace.GetWork.API.Plans.Infrastructure.Persistence.EFC;
+using CodePace.GetWork.API.Profiles.Application.Internal.CommandServices;
+using CodePace.GetWork.API.Profiles.Application.Internal.QueryServices;
+using CodePace.GetWork.API.Profiles.Domain.Repositories;
+using CodePace.GetWork.API.Profiles.Domain.Services;
+using CodePace.GetWork.API.Profiles.Infrastructure.Persistence.EFC.Repositories;
+using CodePace.GetWork.API.Profiles.Interfaces.ACL;
+using CodePace.GetWork.API.Profiles.Interfaces.ACL.Services;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -71,7 +90,41 @@ builder.Services.AddSwaggerGen(
                 }
             });
         c.EnableAnnotations();
+        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            In = ParameterLocation.Header,
+            Description = "Please enter token",
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            BearerFormat = "JWT",
+            Scheme = "bearer"
+        });
+        c.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Id = "Bearer",
+                        Type = ReferenceType.SecurityScheme
+                    }
+                },
+                Array.Empty<string>()
+            }
+        });
     });
+// Configure Lowercase URLs
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllPolicy",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 // Configure Dependency Injection
 
@@ -95,7 +148,21 @@ builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionCommandService, SubscriptionCommandService>();
 builder.Services.AddScoped<ISubscriptionQueryService, SubscriptionQueryService>();
 
+// Profiles Bounded Context Injection Configuration
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
 
+// IAM Bounded Context Injection Configuration
+// TokenSettings Configuration
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IHashingService, HashingService>();
+builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
 var app = builder.Build();
 
@@ -113,6 +180,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("AllowAllPolicy");
+
+// Add Authorization Middleware to Pipeline
+app.UseRequestAuthorization();
 
 app.UseHttpsRedirection();
 
