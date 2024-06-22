@@ -2,7 +2,7 @@ using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 using CodePace.GetWork.API.Plans.Domain.Model.Aggregates;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
-using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
+using DefaultNamespace;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 

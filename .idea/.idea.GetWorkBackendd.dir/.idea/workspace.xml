@@ -25,6 +25,9 @@
     &quot;accountId&quot;: &quot;117d6b9b-4db2-475a-80be-422c6952952a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CodePace.GetWork.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -59,6 +62,7 @@
       <updated>1717793769493</updated>
       <workItem from="1717793771260" duration="79000" />
       <workItem from="1717882502720" duration="63000" />
+      <workItem from="1719026992442" duration="225000" />
     </task>
     <servers />
   </component>
