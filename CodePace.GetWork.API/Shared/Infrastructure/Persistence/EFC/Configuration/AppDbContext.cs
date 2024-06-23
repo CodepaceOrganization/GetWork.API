@@ -15,7 +15,6 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         }
 
         public DbSet<Contest> Contests { get; set; }
-        public DbSet<GlobalRanking> GlobalRankings { get; set; }
         public DbSet<WeeklyContest> WeeklyContests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -35,14 +34,7 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
                 .WithOne(wc => wc.Contest)
                 .HasForeignKey(wc => wc.ContestId);
 
-            // Configuración para GlobalRanking
-            builder.Entity<GlobalRanking>()
-                .HasKey(p => p.Id);
-            builder.Entity<GlobalRanking>()
-                .HasMany(gr => gr.Rankings)
-                .WithOne()
-                .HasForeignKey(r => r.GlobalRankingId);
-
+            
             // Configuración para WeeklyContest
             builder.Entity<WeeklyContest>()
                 .HasOne(wc => wc.Contest)
