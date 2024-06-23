@@ -1,0 +1,11 @@
+services:
+  codepace.getwork.api:
+    image: codepace.getwork.api
+    build:
+      context: .
+      dockerfile: CodePace.GetWork.API/Dockerfile
+      ports:
+        - 8080:8080
+      environment:
+          - ASPNETCORE_ENVIRONMENT=Development
+            

@@ -1,0 +1,6 @@
+﻿services:
+  codepace.getwork.api:
+    image: codepace.getwork.api
+    build:
+      context: .
+      dockerfile: CodePace.GetWork.API/Dockerfile

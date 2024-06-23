@@ -25,7 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(
     options =>
     {
         if (connectionString != null)
-            if (builder.Environment.IsDevelopment())
+            if (builder.Environment.IsDevelopment() )
                 options.UseMySQL(connectionString)
                     .LogTo(Console.WriteLine, LogLevel.Information)
                     .EnableSensitiveDataLogging()
@@ -62,6 +62,18 @@ builder.Services.AddSwaggerGen(
         c.EnableAnnotations();
     });
 
+//Configure Lowercase URLs
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllPolicy",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 // Configure Dependency Injection
 
 // Shared Bounded Context Injection Configuration
@@ -83,9 +95,10 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
+app.UseCors( "AllowAllPolicy");
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
