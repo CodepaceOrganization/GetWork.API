@@ -3,6 +3,11 @@ using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 using CodePace.GetWork.API.Plans.Domain.Model.Aggregates;
 using CodePace.GetWork.API.Profiles.Domain.Model.Aggregates;
+using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
+using CodePace.GetWork.API.contest.Domain.Model.Entities;
+using CodePace.GetWork.API.contest.Domain.Model.ValueObjects;
+using CodePace.GetWork.API.CourseContest.Domain.Model.Aggregates;
+using CodePace.GetWork.API.CourseContest.Domain.Model.Entities;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using DefaultNamespace;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
@@ -15,6 +20,9 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Time> Times { get; set; }
+        public DbSet<CourseDetail> CourseDetails { get; set; }
+        public DbSet<Contest> Contests { get; set; }
+        public DbSet<WeeklyContest> WeeklyContests { get; set; }
 
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -30,6 +38,51 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
+             // Configuración para Contest
+            builder.Entity<Contest>()
+                .HasKey(p => p.Id);
+            builder.Entity<Contest>()
+                .HasMany(c => c.WeeklyContests)
+                .WithOne(wc => wc.Contest)
+                .HasForeignKey(wc => wc.ContestId);
+
+
+            // Configuración para WeeklyContest
+            builder.Entity<WeeklyContest>()
+                .HasOne(wc => wc.Contest)
+                .WithMany(c => c.WeeklyContests)
+                .HasForeignKey(wc => wc.ContestId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Configuración para CourseDetail
+
+            builder.Entity<CourseDetail>()
+                .ToTable("CourseDetail");
+            builder.Entity<CourseDetail>().HasKey(cd => cd.Id);
+            builder.Entity<CourseDetail>().Property(cd => cd.Id).ValueGeneratedOnAdd();
+            
+            builder.Entity<CourseDetail>()
+                .HasMany(c => c.Goals)
+                .WithOne(g => g.CourseDetail)
+                .HasForeignKey(g => g.CourseDetailId);
+            
+            // Configuración para Asset
+            builder.Entity<Asset>().HasDiscriminator(a => a.Type);
+            builder.Entity<Asset>().HasKey(p => p.Id);
+            builder.Entity<Asset>().HasDiscriminator<string>("asset_type")
+                .HasValue<Asset>("asset_base")
+                .HasValue<ImageAssetContest>("asset_image");
+
+            builder.Entity<Asset>().OwnsOne(i => i.AssetIdentifier, ai =>
+            {
+                ai.WithOwner().HasForeignKey("Id");
+                ai.Property(p => p.Identifier).HasColumnName("AssetIdentifier");
+            });
+            
+            
+            builder.Entity<ImageAssetContest>().Property(p => p.ImageUri).IsRequired();
+            
             
             // Subscription Context
             

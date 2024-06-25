@@ -21,6 +21,17 @@ using CodePace.GetWork.API.Profiles.Domain.Services;
 using CodePace.GetWork.API.Profiles.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Profiles.Interfaces.ACL;
 using CodePace.GetWork.API.Profiles.Interfaces.ACL.Services;
+using CodePace.GetWork.API.contest.Application.Internal.CommandServices;
+using CodePace.GetWork.API.contest.Application.Internal.QueryServices;
+using CodePace.GetWork.API.contest.Domain.Model.Entities;
+using CodePace.GetWork.API.contest.Domain.Repositories;
+using CodePace.GetWork.API.contest.Domain.Services;
+using CodePace.GetWork.API.contest.Infrastructure.Persistence.EFC.Repositories;
+using CodePace.GetWork.API.CourseContest.Application.Internal.CommandServices;
+using CodePace.GetWork.API.CourseContest.Application.Internal.QueryServices;
+using CodePace.GetWork.API.CourseContest.Domain.Repositories;
+using CodePace.GetWork.API.CourseContest.Domain.Services;
+using CodePace.GetWork.API.CourseContest.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -49,6 +60,7 @@ builder.Services.AddDbContext<AppDbContext>(
     options =>
     {
         if (connectionString != null)
+
         {
             if (builder.Environment.IsDevelopment())
             {
@@ -126,10 +138,36 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader());
 });
 
+//Configure Lowercase URLs
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllPolicy",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 // Configure Dependency Injection
 
 // Shared Bounded Context Injection Configuration
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+// Contest Bounded Context Injection Configuration
+builder.Services.AddScoped<IContestQueryService, ContestQueryService>();
+builder.Services.AddTransient<IContestCommandService, ContestCommandService>();
+builder.Services.AddScoped<IContestRepository, ContestRepository>();
+builder.Services.AddScoped<IWeeklyContestRepository, WeeklyContestRepository>();
+builder.Services.AddScoped<IDetailQueryService, DetailQueryService>();
+builder.Services.AddScoped<IDetailCommandService, DetailCommandService>();
+builder.Services.AddScoped<ICourseDetailRepository, CourseDetailRepository>();
+builder.Services.AddScoped<IGoalRepository, GoalRepository>();
+builder.Services.AddScoped<IGoalQueryService, GoalQueryService>();
+builder.Services.AddScoped<IGoalCommandService, GoalCommandService>();
+builder.Services.AddScoped<IGoalRepository, GoalRepository>();
 
 // Technical Evaluation Bounded Context Injection Configuration
 builder.Services.AddScoped<ITechnicalTaskRepository, TechnicalTaskRepository>();
@@ -164,6 +202,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
+
 var app = builder.Build();
 
 // Verify Database Objects are created
@@ -174,8 +213,11 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
+
+app.UseCors( "AllowAllPolicy");
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
