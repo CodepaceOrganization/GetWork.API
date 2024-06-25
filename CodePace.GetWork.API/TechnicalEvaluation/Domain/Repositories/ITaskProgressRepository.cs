@@ -6,4 +6,5 @@ namespace CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
 public interface ITaskProgressRepository: IBaseRepository<TaskProgress>
 {
     Task<IEnumerable<TaskProgress>> FindTaskProgressByTechnicalTaskId(int technicalTaskId);
+    Task UpdateTaskProgress(TaskProgress taskProgress);
 }

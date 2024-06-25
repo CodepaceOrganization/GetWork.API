@@ -31,5 +31,11 @@ public class TechnicalTaskRepository(AppDbContext context)
     public async Task AddTaskProgress(TaskProgress taskProgress)
     {
         await Context.Set<TaskProgress>().AddAsync(taskProgress);
+        await Context.SaveChangesAsync();
     }
+    /*public void UpdateTaskProgress(TaskProgress taskProgress)
+    {
+        Context.Set<TaskProgress>().Update(taskProgress);
+        Context.SaveChanges();
+    }*/
 }

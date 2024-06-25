@@ -29,6 +29,14 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         var resource = TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity(technicalTask);
         return CreatedAtAction(nameof(GetTechnicalTaskById), new { technicalTaskId = resource.Id }, resource);
     }
+    [HttpPut ("{technicalTaskId:int}/assign/{userId:int}")]
+    public async Task<IActionResult> UpdateTechnicalTask([FromRoute] int technicalTaskId, int userId, [FromBody] UpdateTaskProgressResource updateTechnicalTaskResource)
+    {
+        var updateTechnicalTaskCommand = UpdateTaskProgressCommandFromResourceAssembler.ToCommandFromResource(technicalTaskId, userId, updateTechnicalTaskResource);
+        var technicalTask = await technicalTaskCommandService.Handle(updateTechnicalTaskCommand);
+        if (technicalTask is null) return BadRequest();
+        return Ok();
+    }
 
     [HttpGet("technical-task-{technicalTaskId:int}")]
     public async Task<IActionResult> GetTechnicalTaskById(int technicalTaskId)
