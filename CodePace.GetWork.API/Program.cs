@@ -4,6 +4,11 @@ using CodePace.GetWork.API.contest.Domain.Model.Entities;
 using CodePace.GetWork.API.contest.Domain.Repositories;
 using CodePace.GetWork.API.contest.Domain.Services;
 using CodePace.GetWork.API.contest.Infrastructure.Persistence.EFC.Repositories;
+using CodePace.GetWork.API.CourseContest.Application.Internal.CommandServices;
+using CodePace.GetWork.API.CourseContest.Application.Internal.QueryServices;
+using CodePace.GetWork.API.CourseContest.Domain.Repositories;
+using CodePace.GetWork.API.CourseContest.Domain.Services;
+using CodePace.GetWork.API.CourseContest.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
@@ -84,6 +89,13 @@ builder.Services.AddScoped<IContestQueryService, ContestQueryService>();
 builder.Services.AddTransient<IContestCommandService, ContestCommandService>();
 builder.Services.AddScoped<IContestRepository, ContestRepository>();
 builder.Services.AddScoped<IWeeklyContestRepository, WeeklyContestRepository>();
+builder.Services.AddScoped<IDetailQueryService, DetailQueryService>();
+builder.Services.AddScoped<IDetailCommandService, DetailCommandService>();
+builder.Services.AddScoped<ICourseDetailRepository, CourseDetailRepository>();
+builder.Services.AddScoped<IGoalRepository, GoalRepository>();
+builder.Services.AddScoped<IGoalQueryService, GoalQueryService>();
+builder.Services.AddScoped<IGoalCommandService, GoalCommandService>();
+builder.Services.AddScoped<IGoalRepository, GoalRepository>();
 
 var app = builder.Build();
 

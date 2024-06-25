@@ -8,7 +8,14 @@ public static class CreateCourseDetailCommandFromResourceAssembler
     public static CreateCourseDetailCommand ToCommandFromResource(CreateCourseDetailResource resource)
     {
         return new CreateCourseDetailCommand(
-            resource.CourseId, null, null, null, null, null, null, null, null
+            resource.ContestId,
+            resource.Description,
+            resource.Image,
+            resource.Image2,
+            resource.Image3,
+            resource.Introduction,
+            resource.Development,
+            resource.Test
         );
     }
 }
