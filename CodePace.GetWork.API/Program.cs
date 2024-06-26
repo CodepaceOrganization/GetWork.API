@@ -138,9 +138,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
 // Contest Bounded Context Injection Configuration
-builder.Services.AddScoped<IContestQueryService, ContestQueryService>();
-builder.Services.AddTransient<IContestCommandService, ContestCommandService>();
-builder.Services.AddScoped<IContestRepository, ContestRepository>();
+builder.Services.AddScoped<IWeeklyContestQueryService, WeeklyContestQueryService>();
+builder.Services.AddTransient<IWeeklyContestCommandService, WeeklyContestCommandService>();
 builder.Services.AddScoped<IWeeklyContestRepository, WeeklyContestRepository>();
 builder.Services.AddScoped<IDetailQueryService, DetailQueryService>();
 builder.Services.AddScoped<IDetailCommandService, DetailCommandService>();

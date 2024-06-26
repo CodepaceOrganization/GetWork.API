@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
-
-namespace CodePace.GetWork.API.contest.Domain.Model.Entities;
+namespace CodePace.GetWork.API.contest.Domain.Model.Aggregates;
 
 public class WeeklyContest 
 {
@@ -10,9 +8,9 @@ public class WeeklyContest
     private DateTime _date;
     private WeeklyContest() { } 
 
-    public WeeklyContest(int contestId,string title, string urlImage, DateTime date)
+    public WeeklyContest(string title, string urlImage, DateTime date)
     {
-        ContestId = contestId;
+
         UpdateTitle(title);
         UpdateUrlImage(urlImage);
         UpdateDate(date);
@@ -21,11 +19,6 @@ public class WeeklyContest
     public int Id { get; private set; }
     public string Title { get => _title; private set => UpdateTitle(value); }
     public string UrlImage { get => _urlImage; private set => UpdateUrlImage(value); }
-    
-    
-    public int ContestId { get; set; }
-
-    public virtual Contest Contest { get; set; }
 
     public DateTime Date { get => _date; private set => UpdateDate(value); }
 

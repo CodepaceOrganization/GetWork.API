@@ -4,7 +4,7 @@ using CodePace.GetWork.API.contest.Domain.Model.Queries;
 
 namespace CodePace.GetWork.API.contest.Domain.Services;
 
-public interface IContestQueryService
+public interface IWeeklyContestQueryService
 { 
     Task<IEnumerable<WeeklyContest>>Handle(GetAllWeeklyContestQuery query);
     Task<WeeklyContest?>Handle(GetWeeklyContestByIdQuery query);

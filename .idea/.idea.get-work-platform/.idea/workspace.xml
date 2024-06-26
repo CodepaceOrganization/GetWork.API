@@ -10,45 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5cd8cd-b82c-4cda-b991-68e1ac01984b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/IAM/Infrastructure/Pipeline/Middleware/Components/RequestAuthorizationMiddleware.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/IAM/Infrastructure/Pipeline/Middleware/Components/RequestAuthorizationMiddleware.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/CommandServices/ContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/CommandServices/WeeklyContestCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/QueryServices/ContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/QueryServices/WeeklyContestQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Aggregates/Contest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/Asset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/Asset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/WeeklyContest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Aggregates/WeeklyContest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/ValueObjects/Rating.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IContestRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IWeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IWeeklyContestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IWeeklyContestCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IWeeklyContestQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/ContestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/ContestController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Application/Internal/CommandServices/TechnicalTaskCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Application/Internal/CommandServices/TechnicalTaskCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Application/Internal/QueryServices/TechnicalTaskQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Application/Internal/QueryServices/TechnicalTaskQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Model/Entities/TechnicalTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Model/Entities/TechnicalTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Repositories/ITechnicalTaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Repositories/ITechnicalTaskRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Services/ITechnicalTaskQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Domain/Services/ITechnicalTaskQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Infrastructure/Persistence/EFC/Repositories/TechnicalTaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Infrastructure/Persistence/EFC/Repositories/TechnicalTaskRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/Resources/TechnicalTaskResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/Resources/TechnicalTaskResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/TechnicalTaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/TechnicalTaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/TechnicalTestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/TechnicalTestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/Transform/TechnicalTaskResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/TechnicalEvaluation/Interfaces/REST/Transform/TechnicalTaskResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Application/Internal/CommandServices/ContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/CommandServices/ContestCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Application/Internal/QueryServices/ContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/QueryServices/ContestQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Aggregates/Contest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Aggregates/Contest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Commands/UpdateWeeklyContestCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/UpdateWeeklyContestCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/Asset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/Asset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/GetWorkAssetIdentifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/GetWorkAssetIdentifier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/ImageAssetContest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/ImageAssetContest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/WeeklyContest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/WeeklyContest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Queries/GetAllWeeklyContestQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Queries/GetAllWeeklyContestQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Queries/GetWeeklyContestByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Queries/GetWeeklyContestByIdQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/ValueObjects/Rating.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/ValueObjects/Rating.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Repositories/IContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Repositories/IWeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IWeeklyContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Services/IContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Services/IContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/ContestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/ContestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Resources/UpdateWeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/UpdateWeeklyContestResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Resources/WeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/WeeklyContestResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Transform/UpdateWeeklyContestCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/UpdateWeeklyContestCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Transform/WeeklyContestResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/WeeklyContestResourceFromEntityAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Production.json" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Production.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,26 +66,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.CodePace.GetWork.API: http.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.CodePace.GetWork.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\jairc\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\jairc\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CodePace.GetWork.API: http">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -288,12 +269,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8ff2f0a0-71de-4480-aa89-23de6ff65545" name="Changes" comment="" />
+      <changelist id="5c5cd8cd-b82c-4cda-b991-68e1ac01984b" name="Changes" comment="" />
       <created>1719103141495</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719103141495</updated>
       <workItem from="1719103143239" duration="1277000" />
+      <workItem from="1719436124394" duration="1155000" />
     </task>
     <servers />
   </component>
@@ -301,6 +283,17 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

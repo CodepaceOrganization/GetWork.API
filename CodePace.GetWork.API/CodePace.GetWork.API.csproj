@@ -25,6 +25,7 @@
 
     <ItemGroup>
       <Compile Remove="TechnicalEvaluation\Infrastructure\Persistence\EFC\Repositories\TaskProgressRepository.cs" />
+      <Folder Include="Contest\Domain\Model\ValueObjects\" />
       <Folder Include="TechnicalEvaluation\Application\Internal\OutboundServices\ACL\" />
       <Folder Include="Tutors\Application\Internal\OutboundServices\" />
       <Folder Include="Tutors\Domain\Services\" />

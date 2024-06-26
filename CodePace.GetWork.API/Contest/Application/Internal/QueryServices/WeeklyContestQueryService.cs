@@ -5,7 +5,7 @@ using CodePace.GetWork.API.contest.Domain.Repositories;
 using CodePace.GetWork.API.contest.Domain.Services;
 namespace CodePace.GetWork.API.contest.Application.Internal.QueryServices;
 
-public class ContestQueryService(IWeeklyContestRepository weeklyContestRepository) : IContestQueryService
+public class WeeklyContestQueryService(IWeeklyContestRepository weeklyContestRepository) : IWeeklyContestQueryService
 {
     public async Task<IEnumerable<WeeklyContest>> Handle(GetAllWeeklyContestQuery query)
     {

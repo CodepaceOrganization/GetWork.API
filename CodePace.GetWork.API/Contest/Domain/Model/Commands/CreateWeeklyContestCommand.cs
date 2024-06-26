@@ -2,4 +2,4 @@
 
 namespace CodePace.GetWork.API.contest.Domain.Model.Commands;
 
-public record CreateWeeklyContestCommand (int ContestId,string Title,string Urlimage, DateTime Date){ }
+public record CreateWeeklyContestCommand (string Title,string Urlimage, DateTime Date){ }

@@ -2,4 +2,4 @@
 
 namespace CodePace.GetWork.API.contest.Interfaces.REST.Resources;
 
-public record CreateWeeklyContestResource(int ContestId,string Title,string UrlImage, DateTime Date);
+public record CreateWeeklyContestResource(string Title,string UrlImage, DateTime Date);

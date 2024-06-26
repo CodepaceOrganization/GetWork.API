@@ -1,4 +1,5 @@
-﻿using CodePace.GetWork.API.contest.Domain.Model.Entities;
+﻿using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
+using CodePace.GetWork.API.contest.Domain.Model.Entities;
 using CodePace.GetWork.API.contest.Domain.Repositories;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;

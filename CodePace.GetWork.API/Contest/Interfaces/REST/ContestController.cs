@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/v1/[controller]")]
 
 public class ContestController(
-    IContestCommandService contestCommandService,
-    IContestQueryService contestQueryService)
+    IWeeklyContestCommandService weeklyContestCommandService,
+    IWeeklyContestQueryService weeklyContestQueryService)
     : ControllerBase
 
 {
@@ -21,7 +21,7 @@ public class ContestController(
     {
         var createWeeklyContestCommand =
             CreateWeeklyContestCommandFromResourceAssembler.ToCommandFromResource(createWeeklyContestResource);
-        var weeklyContest = await contestCommandService.Handle(createWeeklyContestCommand);
+        var weeklyContest = await weeklyContestCommandService.Handle(createWeeklyContestCommand);
         if (weeklyContest is null) return BadRequest();
         var resource = WeeklyContestResourceFromEntityAssembler.ToResourceFromEntity(weeklyContest);
         return CreatedAtAction(nameof(GetWeeklyContestById), new { weeklyContestId = resource.Id }, resource);
@@ -30,7 +30,7 @@ public class ContestController(
     [HttpGet("{weeklyContestId}")]
     public async Task<IActionResult> GetWeeklyContestById(int weeklyContestId)
     {
-        var weeklyContest = await contestQueryService.Handle(new GetWeeklyContestByIdQuery(weeklyContestId));
+        var weeklyContest = await weeklyContestQueryService.Handle(new GetWeeklyContestByIdQuery(weeklyContestId));
         if (weeklyContest == null) return NotFound();
         var resource = WeeklyContestResourceFromEntityAssembler.ToResourceFromEntity(weeklyContest);
         return Ok(resource);
@@ -40,7 +40,7 @@ public class ContestController(
     public async Task<IActionResult> UpdateWeeklyContest(int weeklyContestId, [FromBody] UpdateWeeklyContestResource updateWeeklyContestResource)
     {
         var updateWeeklyContestCommand = UpdateWeeklyContestCommandFromResourceAssembler.ToCommandFromResource(updateWeeklyContestResource);
-        var updatedWeeklyContest = await contestCommandService.Handle(updateWeeklyContestCommand);
+        var updatedWeeklyContest = await weeklyContestCommandService.Handle(updateWeeklyContestCommand);
         if (updatedWeeklyContest == null) return NotFound();
         var resource = WeeklyContestResourceFromEntityAssembler.ToResourceFromEntity(updatedWeeklyContest);
         return Ok(resource);
@@ -49,7 +49,7 @@ public class ContestController(
     [HttpGet]
     public async Task<IActionResult> GetAllWeeklyContest()
     {
-        var weeklyContests = await contestQueryService.Handle(new GetAllWeeklyContestQuery());
+        var weeklyContests = await weeklyContestQueryService.Handle(new GetAllWeeklyContestQuery());
         var resources = weeklyContests.Select(WeeklyContestResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }

@@ -5,7 +5,6 @@ using CodePace.GetWork.API.Plans.Domain.Model.Aggregates;
 using CodePace.GetWork.API.Profiles.Domain.Model.Aggregates;
 using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
 using CodePace.GetWork.API.contest.Domain.Model.Entities;
-using CodePace.GetWork.API.contest.Domain.Model.ValueObjects;
 using CodePace.GetWork.API.CourseContest.Domain.Model.Aggregates;
 using CodePace.GetWork.API.CourseContest.Domain.Model.Entities;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
@@ -21,7 +20,6 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         public DbSet<Tutor> Tutors { get; set; }
         public DbSet<Time> Times { get; set; }
         public DbSet<CourseDetail> CourseDetails { get; set; }
-        public DbSet<Contest> Contests { get; set; }
         public DbSet<WeeklyContest> WeeklyContests { get; set; }
 
         public AppDbContext(DbContextOptions options) : base(options)
@@ -39,21 +37,10 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
         {
             base.OnModelCreating(builder);
             
-             // Configuración para Contest
-            builder.Entity<Contest>()
-                .HasKey(p => p.Id);
-            builder.Entity<Contest>()
-                .HasMany(c => c.WeeklyContests)
-                .WithOne(wc => wc.Contest)
-                .HasForeignKey(wc => wc.ContestId);
-
-
             // Configuración para WeeklyContest
             builder.Entity<WeeklyContest>()
-                .HasOne(wc => wc.Contest)
-                .WithMany(c => c.WeeklyContests)
-                .HasForeignKey(wc => wc.ContestId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .ToTable("WeeklyContest");
+            builder.Entity<WeeklyContest>().HasKey(wc => wc.Id);
 
             // Configuración para CourseDetail
 
