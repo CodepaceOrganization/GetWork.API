@@ -32,9 +32,10 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
     [HttpPut ("{technicalTaskId:int}/update/{userId:int}")]
     public async Task<IActionResult> UpdateTechnicalTask([FromRoute] int technicalTaskId, int userId, [FromBody] UpdateTaskProgressResource updateTechnicalTaskResource)
     {
+        Console.WriteLine("Update Technical Task");
+        Console.WriteLine(userId);
         var updateTechnicalTaskCommand = UpdateTaskProgressCommandFromResourceAssembler.ToCommandFromResource(technicalTaskId, userId, updateTechnicalTaskResource);
         var technicalTask = await technicalTaskCommandService.Handle(updateTechnicalTaskCommand);
-        if (technicalTask is null) return BadRequest();
         return Ok();
     }
 

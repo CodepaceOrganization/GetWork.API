@@ -20,12 +20,15 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
 
     public async Task<TechnicalTask?> Handle(UpdateTaskProgressCommand command)
     {
-        var technicalTask = await technicalTaskRepository.FindByIdAsync(command.TechnicalTaskId);
-        if (technicalTask is null) throw new Exception("Technical Task not found");
-        technicalTask.TaskProgress.UpdateProgress(Enum.Parse<EProgress>(command.Progress));
-        await technicalTaskRepository.UpdateTaskProgress(command.TechnicalTaskId,technicalTask.TaskProgress);
+        Console.WriteLine("Update Task Progress");
+        Console.WriteLine(command.UserId);
+        var technicalTaskProgress = await technicalTaskRepository.FindTaskProgress(command.TechnicalTaskId, command.UserId);
+        Console.WriteLine(technicalTaskProgress);
+        if (technicalTaskProgress is null) throw new Exception("Technical Task not found");
+        technicalTaskProgress.UpdateProgress(Enum.Parse<EProgress>(command.Progress));
+        await technicalTaskRepository.UpdateTaskProgress(command.TechnicalTaskId,technicalTaskProgress);
         await unitOfWork.CompleteAsync();
-        return technicalTask;
+        return technicalTaskProgress.TechnicalTask;
     }
     
     public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
