@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 [ApiController]
 [Route("api/v1/[controller]")]
 
-public class ContestController(
+public class WeeklyContestController(
     IWeeklyContestCommandService weeklyContestCommandService,
     IWeeklyContestQueryService weeklyContestQueryService)
     : ControllerBase
