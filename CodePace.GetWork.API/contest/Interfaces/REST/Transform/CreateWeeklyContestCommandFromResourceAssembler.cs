@@ -7,6 +7,6 @@ public class CreateWeeklyContestCommandFromResourceAssembler
 {
     public static CreateWeeklyContestCommand ToCommandFromResource(CreateWeeklyContestResource resource)
     {
-        return new CreateWeeklyContestCommand(resource.ContestId,resource.Title, resource.UrlImage, resource.Date);
+        return new CreateWeeklyContestCommand(resource.Title, resource.UrlImage, resource.Date);
     }
 }

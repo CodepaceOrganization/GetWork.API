@@ -9,7 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ff2f0a0-71de-4480-aa89-23de6ff65545" name="Changes" comment="" />
+    <list default="true" id="8ff2f0a0-71de-4480-aa89-23de6ff65545" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API.Tests/UnitTests/WeeklyContestTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API.Tests/UnitTests/WeeklyContestTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Application/Internal/CommandServices/ContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Application/Internal/CommandServices/ContestCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Aggregates/Contest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Aggregates/Contest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/Asset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/Asset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/WeeklyContest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/Entities/WeeklyContest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Model/ValueObjects/Rating.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Repositories/IContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Domain/Repositories/IContestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,34 +48,34 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2iG3ZFDAahja4R4zStwcBnwYRh7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.CodePace.GetWork.API: http.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/contest-course",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.CodePace.GetWork.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/contest-course&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\jairc\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\jairc\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\jairc\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CodePace.GetWork.API: http">
     <configuration name="CodePace.GetWork.API: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" />
@@ -129,11 +144,17 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
@@ -154,7 +175,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1719103141495</updated>
-      <workItem from="1719103143239" duration="1277000" />
+      <workItem from="1719103143239" duration="1678000" />
+      <workItem from="1719206564030" duration="2923000" />
+      <workItem from="1719287729203" duration="1280000" />
+      <workItem from="1719289361628" duration="2507000" />
     </task>
     <servers />
   </component>

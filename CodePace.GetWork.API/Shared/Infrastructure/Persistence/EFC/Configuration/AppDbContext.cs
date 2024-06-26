@@ -1,6 +1,5 @@
 using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
 using CodePace.GetWork.API.contest.Domain.Model.Entities;
-using CodePace.GetWork.API.contest.Domain.Model.ValueObjects;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;

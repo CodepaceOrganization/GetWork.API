@@ -6,4 +6,5 @@ namespace CodePace.GetWork.API.contest.Domain.Repositories;
 
 public interface IContestRepository : IBaseRepository<Contest>
 {
+    Contest GetContestById(int id);
 }

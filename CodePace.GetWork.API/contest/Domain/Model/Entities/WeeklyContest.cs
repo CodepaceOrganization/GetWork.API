@@ -10,9 +10,8 @@ public class WeeklyContest
     private DateTime _date;
     private WeeklyContest() { } 
 
-    public WeeklyContest(int contestId,string title, string urlImage, DateTime date)
+    public WeeklyContest(string title, string urlImage, DateTime date)
     {
-        ContestId = contestId;
         UpdateTitle(title);
         UpdateUrlImage(urlImage);
         UpdateDate(date);

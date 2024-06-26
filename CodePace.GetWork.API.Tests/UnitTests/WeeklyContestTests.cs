@@ -17,7 +17,7 @@ namespace CodePace.GetWork.Tests
             DateTime date = DateTime.Now;
 
             // Act
-            var weeklyContest = new WeeklyContest(contestId, title, urlImage, date);
+            var weeklyContest = new WeeklyContest(title, urlImage, date);
 
             // Assert
             Assert.AreEqual(contestId, weeklyContest.ContestId);
@@ -30,7 +30,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateTitle_ShouldUpdateTitle()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest("Sample Contest", "http://example.com/image.jpg", DateTime.Now);
             string newTitle = "Updated Contest Title";
 
             // Act
@@ -44,7 +44,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateTitle_ShouldThrowException_WhenTitleIsNullOrEmpty()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest("Sample Contest", "http://example.com/image.jpg", DateTime.Now);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => weeklyContest.UpdateTitle(null));
@@ -55,7 +55,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateUrlImage_ShouldUpdateUrlImage()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest( "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
             string newUrlImage = "http://example.com/newimage.jpg";
 
             // Act
@@ -69,7 +69,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateUrlImage_ShouldThrowException_WhenUrlImageIsNullOrEmpty()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest( "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => weeklyContest.UpdateUrlImage(null));
@@ -80,7 +80,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateDate_ShouldUpdateDate()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest("Sample Contest", "http://example.com/image.jpg", DateTime.Now);
             DateTime newDate = DateTime.Now.AddDays(1);
 
             // Act
@@ -94,7 +94,7 @@ namespace CodePace.GetWork.Tests
         public void UpdateDate_ShouldThrowException_WhenDateIsDefault()
         {
             // Arrange
-            var weeklyContest = new WeeklyContest(1, "Sample Contest", "http://example.com/image.jpg", DateTime.Now);
+            var weeklyContest = new WeeklyContest("Sample Contest", "http://example.com/image.jpg", DateTime.Now);
 
             // Act & Assert
             Assert.Throws<ArgumentException>(() => weeklyContest.UpdateDate(default));

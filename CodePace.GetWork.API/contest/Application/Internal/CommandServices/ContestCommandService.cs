@@ -12,32 +12,20 @@ public class ContestCommandService(IWeeklyContestRepository weeklyContestReposit
 {
     public async Task<WeeklyContest?> Handle(CreateWeeklyContestCommand command)
     {
-        var contest = await Contest(command);
-        if (contest == null)
-        {
-            NewMethod();
-        }
-
         var weeklyContests = await weeklyContestRepository.ListAsync();
         if (weeklyContests.Count() >= 4)
         {
             throw new InvalidOperationException("Cannot create more than 4 weekly contests.");
         }
 
-        var weeklycontest = new WeeklyContest(command.ContestId, command.Title, command.Urlimage, command.Date);
+        var weeklycontest = new WeeklyContest(command.Title, command.Urlimage, command.Date);
         await weeklyContestRepository.AddAsync(weeklycontest);
         await unitOfWork.CompleteAsync();
         return weeklycontest;
     }
-
-    private async Task<Contest?> Contest(CreateWeeklyContestCommand command)
-    {
-        var contest = await contestRepository.FindByIdAsync(command.ContestId);
-        return contest;
-    }
     private static void NewMethod()
     {
-        throw new ArgumentException("No contest with the provided ID could be found.", nameof(CreateWeeklyContestCommand.ContestId));
+        throw new ArgumentException("No contest with the provided ID could be found.");
     }
     public async Task<WeeklyContest?> Handle(UpdateWeeklyContestCommand command)
     {

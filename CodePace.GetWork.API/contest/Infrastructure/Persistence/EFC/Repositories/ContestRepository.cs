@@ -9,4 +9,17 @@ using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 namespace CodePace.GetWork.API.contest.Infrastructure.Persistence.EFC.Repositories;
 
-public class ContestRepository(AppDbContext context) : BaseRepository<Contest>(context),IContestRepository;
+public class ContestRepository : BaseRepository<Contest>, IContestRepository
+{
+    private readonly AppDbContext _context;
+
+    public ContestRepository(AppDbContext context) : base(context)
+    {
+        _context = context;
+    }
+
+    public Contest GetContestById(int id)
+    {
+        return _context.Contests.FirstOrDefault(c => c.Id == id);
+    }
+}

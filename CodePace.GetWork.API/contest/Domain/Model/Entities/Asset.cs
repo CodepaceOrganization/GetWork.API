@@ -1,5 +1,4 @@
 ﻿using System;
-using CodePace.GetWork.API.contest.Domain.Model.ValueObjects;
 
 namespace CodePace.GetWork.API.contest.Domain.Model.Entities;
 

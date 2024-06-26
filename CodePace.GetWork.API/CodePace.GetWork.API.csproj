@@ -22,4 +22,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="contest\Domain\Model\ValueObjects\" />
+    </ItemGroup>
+
 </Project>
