@@ -9,11 +9,12 @@ public class TechnicalTask
     public EDificultyStatus Difficulty { get; private set; }
     public TaskProgress TaskProgress { get; set; }
     public int TechnicalTestId { get; private set; } 
-    public TechnicalTask(string description, EDificultyStatus difficulty)
+    public TechnicalTask(string description, EDificultyStatus difficulty, int technicalTestId)
     {
         Description = description;
         Difficulty = difficulty;
         TaskProgress = new TaskProgress(0,Id);
+        this.TechnicalTestId = technicalTestId;
     }
 
     public TechnicalTask()

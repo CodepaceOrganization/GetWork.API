@@ -19,4 +19,8 @@ public class TechnicalTaskQueryService(ITechnicalTaskRepository technicalTaskRep
     {
         return await technicalTaskRepository.ListAsync();
     }
+    public async Task<IEnumerable<TechnicalTask>> Handle(GetAllTechnicalTaskByUserIdQuery query)
+    {
+        return await technicalTaskRepository.GetAllTechnicalTaskByUserId(query.UserId, query.TechnicalTestId);
+    }
 }

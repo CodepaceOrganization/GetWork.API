@@ -7,7 +7,6 @@ public static class TechnicalTaskResourceFromEntityAssembler
 {
     public static TechnicalTaskResource ToResourceFromEntity(TechnicalTask entity)
     {
-        return new TechnicalTaskResource(entity.Id, entity.Description, entity.Difficulty);
-        
+        return new TechnicalTaskResource(entity.Id, entity.Description,entity.TaskProgress.Progress.ToString(),entity.Difficulty.ToString());
     }
 }

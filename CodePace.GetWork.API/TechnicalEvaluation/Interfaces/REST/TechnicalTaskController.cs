@@ -29,7 +29,7 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         var resource = TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity(technicalTask);
         return CreatedAtAction(nameof(GetTechnicalTaskById), new { technicalTaskId = resource.Id }, resource);
     }
-    [HttpPut ("{technicalTaskId:int}/assign/{userId:int}")]
+    [HttpPut ("{technicalTaskId:int}/update/{userId:int}")]
     public async Task<IActionResult> UpdateTechnicalTask([FromRoute] int technicalTaskId, int userId, [FromBody] UpdateTaskProgressResource updateTechnicalTaskResource)
     {
         var updateTechnicalTaskCommand = UpdateTaskProgressCommandFromResourceAssembler.ToCommandFromResource(technicalTaskId, userId, updateTechnicalTaskResource);
@@ -38,7 +38,7 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
         return Ok();
     }
 
-    [HttpGet("technical-task-{technicalTaskId:int}")]
+    [HttpGet("/{technicalTaskId:int}")]
     public async Task<IActionResult> GetTechnicalTaskById(int technicalTaskId)
     {
         var getTechnicalTaskByIdQuery = new GetTechnicalTaskByIdQuery(technicalTaskId);
@@ -52,6 +52,14 @@ public class TechnicalTaskController(ITechnicalTaskCommandService technicalTaskC
     {
         var getAllTechnicalTaskQuery = new GetAllTechnicalTaskByTechnicalTestIdQuery(technicalTestId);
         var technicalTasks = await technicalTaskQueryService.Handle(getAllTechnicalTaskQuery);
+        var resources = technicalTasks.Select(TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(resources);
+    }
+    [HttpGet("details-{technicalTestId:int}/user/{userId:int}")]
+    public async Task<IActionResult> GetTechnicalTaskByUserId([FromRoute] int userId, [FromRoute] int technicalTestId)
+    {
+        var getTechnicalTaskByUserIdQuery = new GetAllTechnicalTaskByUserIdQuery(userId, technicalTestId);
+        var technicalTasks = await technicalTaskQueryService.Handle(getTechnicalTaskByUserIdQuery);
         var resources = technicalTasks.Select(TechnicalTaskResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }

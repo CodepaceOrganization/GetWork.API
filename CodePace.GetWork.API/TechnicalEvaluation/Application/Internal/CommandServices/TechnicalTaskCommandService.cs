@@ -1,4 +1,5 @@
 ﻿using CodePace.GetWork.API.Shared.Domain.Repositories;
+using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Commands;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Entities;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.ValueObjects;
@@ -11,7 +12,7 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
 {
     public async Task<TechnicalTask?> Handle(CreateTechnicalTaskCommand command)
     {
-        var technicalTask = new TechnicalTask(command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty));
+        var technicalTask = new TechnicalTask(command.Description, Enum.Parse<EDificultyStatus>(command.Difficulty), command.TechnicalTestId);
         await technicalTaskRepository.AddAsync(technicalTask);
         await unitOfWork.CompleteAsync();
         return technicalTask;
@@ -22,9 +23,11 @@ public class TechnicalTaskCommandService(ITechnicalTaskRepository technicalTaskR
         var technicalTask = await technicalTaskRepository.FindByIdAsync(command.TechnicalTaskId);
         if (technicalTask is null) throw new Exception("Technical Task not found");
         technicalTask.TaskProgress.UpdateProgress(Enum.Parse<EProgress>(command.Progress));
+        await technicalTaskRepository.UpdateTaskProgress(command.TechnicalTaskId,technicalTask.TaskProgress);
         await unitOfWork.CompleteAsync();
         return technicalTask;
     }
+    
     public async Task<IEnumerable<TechnicalTask>>? Handle(AssignTechnicalTaskToUserCommand command)
     {
         try

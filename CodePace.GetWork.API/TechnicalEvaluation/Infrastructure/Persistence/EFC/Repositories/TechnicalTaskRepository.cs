@@ -33,9 +33,24 @@ public class TechnicalTaskRepository(AppDbContext context)
         await Context.Set<TaskProgress>().AddAsync(taskProgress);
         await Context.SaveChangesAsync();
     }
-    /*public void UpdateTaskProgress(TaskProgress taskProgress)
+
+    public async Task UpdateTaskProgress(int id, TaskProgress taskProgress)
     {
-        Context.Set<TaskProgress>().Update(taskProgress);
-        Context.SaveChanges();
-    }*/
+        var existingTaskProgress = await Context.Set<TaskProgress>().FirstOrDefaultAsync(t => t.TechnicalTaskId == id);
+    
+        if (existingTaskProgress == null)
+        {
+            throw new Exception($"No TaskProgress record found with the technical_task_id of {id}");
+        }
+
+        existingTaskProgress.Progress = taskProgress.Progress;
+        await Context.SaveChangesAsync();
+    }
+    public async Task<IEnumerable<TechnicalTask>> GetAllTechnicalTaskByUserId(int userId, int technicalTestId)
+    {
+        return await Context.Set<TechnicalTask>()
+            .Include(t => t.TaskProgress)
+            .Where(t => t.TaskProgress.UserId == userId && t.TechnicalTestId == technicalTestId)
+            .ToListAsync();
+    }
 }

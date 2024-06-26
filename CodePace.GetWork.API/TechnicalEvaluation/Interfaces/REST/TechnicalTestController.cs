@@ -1,4 +1,5 @@
 ﻿using System.Net.Mime;
+using CodePace.GetWork.API.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Queries;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
