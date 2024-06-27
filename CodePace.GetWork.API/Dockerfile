@@ -7,14 +7,13 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["CodePace.GetWork.API/CodePace.GetWork.API.csproj", "CodePace.GetWork.API/"]
-RUN dotnet restore "CodePace.GetWork.API/CodePace.GetWork.API.csproj"
+COPY CodePace.GetWork.API.csproj .
+RUN dotnet restore "CodePace.GetWork.API.csproj"
 COPY . .
-WORKDIR "/src/CodePace.GetWork.API"
+WORKDIR "/src"
 RUN dotnet build "CodePace.GetWork.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "CodePace.GetWork.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
