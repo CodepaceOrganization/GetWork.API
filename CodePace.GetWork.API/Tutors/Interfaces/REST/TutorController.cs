@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class TutorsController : ControllerBase
 {
     private readonly TutorCommandService _commandService;

@@ -182,6 +182,14 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllPolicy",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 // Verify Database Objects are created
