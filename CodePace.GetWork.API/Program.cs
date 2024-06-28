@@ -23,7 +23,6 @@ using CodePace.GetWork.API.Profiles.Interfaces.ACL;
 using CodePace.GetWork.API.Profiles.Interfaces.ACL.Services;
 using CodePace.GetWork.API.contest.Application.Internal.CommandServices;
 using CodePace.GetWork.API.contest.Application.Internal.QueryServices;
-using CodePace.GetWork.API.contest.Domain.Model.Entities;
 using CodePace.GetWork.API.contest.Domain.Repositories;
 using CodePace.GetWork.API.contest.Domain.Services;
 using CodePace.GetWork.API.contest.Infrastructure.Persistence.EFC.Repositories;
@@ -38,14 +37,17 @@ using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Repositories;
 using CodePace.GetWork.API.Shared.Interfaces.ASP.Configuration;
 using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.CommandServices;
 using CodePace.GetWork.API.TechnicalEvaluation.Application.Internal.QueryServices;
-using CodePace.GetWork.API.TechnicalEvaluation.Domain.Model.Aggregates;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Repositories;
 using CodePace.GetWork.API.TechnicalEvaluation.Domain.Services;
 using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
+using CodePace.GetWork.API.Tutors.Application.Internal.CommandServices;
+using CodePace.GetWork.API.Tutors.Application.Internal.QueryServices;
+using CodePace.GetWork.API.Tutors.Domain.Repositories;
+using CodePace.GetWork.API.Tutors.Domain.Services;
+using CodePace.GetWork.API.Tutors.Infrastructure.Persistence.EFC.Repositories;
 //using CodePace.GetWork.API.TechnicalEvaluation.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using DefaultNamespace;  
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -157,9 +159,7 @@ builder.Services.AddScoped<ITechnicalTaskQueryService, TechnicalTaskQueryService
 builder.Services.AddScoped<ITechnicalTestQueryService, TechnicalTestQueryService>();
 
 // Register Tutor services and repository
-builder.Services.AddSingleton<ITutorRepository, TutorRepository>();
-builder.Services.AddTransient<TutorCommandService>();
-builder.Services.AddTransient<TutorQueryService>();
+
 
 //Subscription services and repository
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
@@ -171,6 +171,12 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+//Tutors Bound Context Injection Configuration
+builder.Services.AddScoped<ITutorRepository, TutorRepository>();
+builder.Services.AddScoped<ITutorsCommandService, TutorsCommandService>();
+builder.Services.AddScoped<ITutorsQueryService, TutorsQueryService>();
+builder.Services.AddScoped<UnitOfWork>();
 
 // IAM Bounded Context Injection Configuration
 // TokenSettings Configuration

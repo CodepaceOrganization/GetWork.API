@@ -1,38 +1,45 @@
-namespace DefaultNamespace;
+﻿using CodePace.GetWork.API.Tutors.Domain.Model.Entities;
+using Microsoft.EntityFrameworkCore;
+using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration;
+using CodePace.GetWork.API.Tutors.Domain.Repositories;
 
-public class TutorRepository: ITutorRepository
+namespace CodePace.GetWork.API.Tutors.Infrastructure.Persistence.EFC.Repositories
 {
-    private readonly List<Tutor> _tutors = new List<Tutor>
+    public class TutorRepository : ITutorRepository
     {
-        new Tutor
+        private readonly AppDbContext _context;
+
+        public TutorRepository(AppDbContext context)
         {
-            Id = 4,
-            Name = "Fred F. Jones",
-            Description = "Tutora especializada en ciencia de datos y análisis de datos, con un enfoque en lenguajes como R y Python. Sus clases se centran en aplicaciones prácticas y casos de uso del mundo real, brindando a los estudiantes las habilidades necesarias para trabajar en proyectos de análisis de datos.",
-            Image = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRRMac9mqjIX-epY7BXzI0LiP0C8JwzRKVfmSbRsm6J0PapspvX",
-            Times = new List<Time> 
-            { 
-                new Time { Value = "11:00 AM" }, 
-                new Time { Value = "1:00 PM" }, 
-                new Time { Value = "4:00 PM" }, 
-                new Time { Value = "6:00 PM" } 
-            }
+            _context = context;
         }
-    };
 
-    public IEnumerable<Tutor> GetAll()
-    {
-        return _tutors;
-    }
+        public async Task<List<Tutor>> GetAllAsync()
+        {
+            return await _context.Set<Tutor>().ToListAsync();
+        }
 
-    public Tutor GetById(int id)
-    {
-        return _tutors.FirstOrDefault(t => t.Id == id);
-    }
+        public async Task<Tutor> GetByIdAsync(int id)
+        {
+            return await _context.Set<Tutor>().FindAsync(id);
+        }
 
-    public void Add(Tutor tutor)
-    {
-        tutor.Id = _tutors.Max(t => t.Id) + 1; // Generate new ID
-        _tutors.Add(tutor);
+        public async Task AddAsync(Tutor tutorEntity)
+        {
+            await _context.Set<Tutor>().AddAsync(tutorEntity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Tutor tutorEntity)
+        {
+            _context.Set<Tutor>().Update(tutorEntity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Tutor tutorEntity)
+        {
+            _context.Set<Tutor>().Remove(tutorEntity);
+            await _context.SaveChangesAsync();
+        }
     }
 }

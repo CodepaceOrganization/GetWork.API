@@ -1,8 +1,15 @@
-namespace DefaultNamespace;
+﻿using CodePace.GetWork.API.Tutors.Domain.Model.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-public interface ITutorRepository
+namespace CodePace.GetWork.API.Tutors.Domain.Repositories
 {
-        IEnumerable<Tutor> GetAll();
-        Tutor GetById(int id);
-        void Add(Tutor tutor);
+    public interface ITutorRepository
+    {
+        Task<List<Tutor>> GetAllAsync();
+        Task<Tutor> GetByIdAsync(int id);
+        Task AddAsync(Tutor tutorEntity);
+        Task UpdateAsync(Tutor tutorEntity);
+        Task DeleteAsync(Tutor tutorEntity);
+    }
 }

@@ -10,26 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c5cd8cd-b82c-4cda-b991-68e1ac01984b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Application/Internal/CommandServices/TutorsCommandService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Application/Internal/QueryServices/TutorsQueryService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Commands/CreateTutorsCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Entities/Tutors.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Queries/GetAllTutorsQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Queries/GetTutorsByIdQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Services/ITutorsCommandService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Services/ITutorsQueryService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Resources/CreateTutorsResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Resources/TutorsResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Transform/CreateTutorsSourceCommandFromResourceAssembler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Transform/TutorsSourceResourceFromEntityAssembler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/TutorsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.get-work-platform/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/CodePace.GetWork.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/CommandServices/ContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/CommandServices/WeeklyContestCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/QueryServices/ContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Application/Internal/QueryServices/WeeklyContestQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Aggregates/Contest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Commands/CreateWeeklyContestCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/Asset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/Asset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Entities/WeeklyContest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/Aggregates/WeeklyContest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Model/ValueObjects/Rating.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IContestRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IWeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Repositories/IWeeklyContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IWeeklyContestCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IContestQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Domain/Services/IWeeklyContestQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/ContestRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Infrastructure/Persistence/EFC/Repositories/WeeklyContestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/ContestController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/ContestController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Resources/CreateWeeklyContestResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Contest/Interfaces/REST/Transform/CreateWeeklyContestCommandFromResourceAssembler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Production.json" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/appsettings.Production.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Application/Internal/CommandServices/TutorCommandService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Application/Internal/QueryServices/TutorQueryService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Aggregates/Time.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Aggregates/Tutor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Commands/CreateTutorCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Queries/GetAllTutorQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Model/Queries/GetTutorByIdQuery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Repositories/ITutorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Domain/Repositories/ITutorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Infrastructure/Persistence/EFC/Repositories/TutorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Infrastructure/Persistence/EFC/Repositories/TutorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Resources/TutorResource.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/Transform/TutorResourceFromEntityAssembler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodePace.GetWork.API/Tutors/Interfaces/REST/TutorController.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +64,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/UPC/Ciclo 5/Aplicaciones Web/Final/GetWorkBackend/CodePace.GetWork.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UPC/Ciclo 5/Aplicaciones Web/Final/GetWorkBackend/CodePace.GetWork.API/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/b8139c5ee58f1708b0e3368a1b241400edd6cbc4/src/Middleware/CORS/src/Infrastructure/CorsMiddlewareExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/6a2be34d045329d9eff9536ec824226696d53e00/src/EFCore/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Linq/src/System/Linq/Select.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/3b8b000a0e115700b18265d8ec8c6307056dc94d/src/libraries/System.Private.CoreLib/src/System/Runtime/ExceptionServices/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3

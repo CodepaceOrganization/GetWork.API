@@ -6,9 +6,8 @@ using CodePace.GetWork.API.Profiles.Domain.Model.Aggregates;
 using CodePace.GetWork.API.contest.Domain.Model.Aggregates;
 using CodePace.GetWork.API.contest.Domain.Model.Entities;
 using CodePace.GetWork.API.CourseContest.Domain.Model.Aggregates;
-using CodePace.GetWork.API.CourseContest.Domain.Model.Entities;
 using CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
-using DefaultNamespace;
+using CodePace.GetWork.API.Tutors.Domain.Model.Entities;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,15 +16,15 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
     public class AppDbContext : DbContext
     {
         public DbSet<Subscription> Subscriptions { get; set; }
-        public DbSet<Tutor> Tutors { get; set; }
-        public DbSet<Time> Times { get; set; }
         public DbSet<CourseDetail> CourseDetails { get; set; }
         public DbSet<WeeklyContest> WeeklyContests { get; set; }
-
+        public DbSet<Tutor> Tutors { get; set; }
+        
+        
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             base.OnConfiguring(builder);
@@ -138,6 +137,18 @@ namespace CodePace.GetWork.API.Shared.Infrastructure.Persistence.EFC.Configurati
                     a.Property(s => s.PostalCode).HasColumnName("AddressPostalCode");
                     a.Property(s => s.Country).HasColumnName("AddressCountry");
                 });
+            
+            builder.Entity<Tutor>()
+                .ToTable("Tutor");
+            builder.Entity<Tutor>().HasKey(t => t.Id);
+            builder.Entity<Tutor>().Property(t => t.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Tutor>().Property(t => t.Name).IsRequired();
+            builder.Entity<Tutor>().Property(t => t.Description).IsRequired();
+            builder.Entity<Tutor>().Property(t => t.Image).IsRequired();
+            builder.Entity<Tutor>().Property(t => t.Times)
+                .HasConversion(
+                    v => string.Join(',', v),
+                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList());
 
             
             // IAM Context
